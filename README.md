@@ -1,3 +1,3 @@
 # Whatisonnetflix.com
 
-![alt](https://github.com/ltalhouarne/whatisonnetflix/blob/master/css/screenshot.png)
+![alt](https://github.com/ltalhouarne/whatisonnetflix/blob/master/img/screenshot.png)
