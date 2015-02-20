@@ -179,11 +179,6 @@
                     {{post.userScore}}{{post.metaScore}}</span></h4>
                 <a  ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                 </span>
-                <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-                <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-                <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-                <!--style="color: orange"></i>-->
-                <!--{{post.userScore}}{{post.metaScore}}</h4><button class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>-->
             </div>
 
             <div ng-repeat="post in posts3 | filter:search| filter:customFilter" class="repeated-item" ng-show="!rating">
@@ -194,11 +189,6 @@
                     {{post.userScore}}{{post.metaScore}}</span></h4>
                 <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                 </span>
-                <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-                <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-                <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-                <!--style="color: orange"></i>-->
-                <!--{{post.userScore}}{{post.metaScore}}</h4><h4><button class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></h4></a>-->
             </div>
         </div>
     </div>
@@ -268,11 +258,6 @@
                     {{post.rating}}</span></h4>
                 <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                 </span>
-                <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-                <!--onerror="this.style.display='none';" style="width:100px; height:auto;" ng-src="{{post.img}}">-->
-                <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-                <!--style="color: orange"></i>-->
-                <!--{{post.rating}}</h4></a>-->
             </div>
 
             <div ng-repeat="post in posts2 | filter:search| filter:customFilter" class="aligned height repeated-item" ng-show="!rating">
@@ -283,11 +268,6 @@
                     {{post.userRating}}</span></h4>
                 <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                 </span>
-                <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-                <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-                <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-                <!--style="color: orange"></i>-->
-                <!--{{post.userRating}}</h4></a>-->
             </div>
         </div>
     </div>
@@ -359,10 +339,6 @@
                                 {{post.rating}}</span></h4>
                                                     <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                 </span>
-                <!--<a target="_blank" ng-show="true" style="width:auto;" ng-href="{{post.url}}" class="list-group-item posts2">-->
-                <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-                <!--style="color: orange"></i>-->
-                <!--{{post.rating}}</h4></a>-->
             </div>
 
             <div id="showsImdb" ng-repeat="post in posts2 | filter:search | filter:customFilter" ng-show="!type" class="repeated-item">
@@ -373,10 +349,6 @@
                     {{post.rating}}</span></h4>
                 <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                 </span>
-                <!--<a target="_blank" ng-show="true" style="width:auto;" ng-href="{{post.url}}" class="list-group-item posts2">-->
-                <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-                <!--style="color: orange"></i>-->
-                <!--{{post.rating}}</h4></a>-->
             </div>
         </div>
     </div>
@@ -476,10 +448,6 @@
                             {{post.rating}}</h4>
                         <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                         </span>
-            <!--<a target="_blank" class="list-group-item posts2" style=width:auto; >-->
-            <!--<h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"-->
-            <!--style="color: orange"></i>-->
-            <!--{{post.rating}}</h4></a>-->
         </div>
         <br>
         <button ng-click="shuffle()" class="btn btn-default"><i  class="fa fa-refresh"></i></button>
@@ -528,11 +496,6 @@
                             {{post.rating}}</h4>
                         <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                         </span>
-            <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-            <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-            <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-            <!--style="color: orange"></i>-->
-            <!--{{post.rating}}</h4></a>-->
         </div>
 
         <div ng-repeat="post in posts2 | filter:customFilter | limitTo: 1" class="aligned height" ng-show="!rating">
@@ -542,11 +505,6 @@
                             {{post.userRating}}</h4>
                         <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                         </span>
-            <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-            <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-            <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-            <!--style="color: orange"></i>-->
-            <!--{{post.userRating}}</h4></a>-->
         </div>
         <br>
         <button ng-click="shuffle()" class="btn btn-default"><i  class="fa fa-refresh"></i></button>
@@ -591,11 +549,6 @@
                             {{post.userScore}}{{post.metaScore}}</h4>
                         <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                         </span>
-            <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-            <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-            <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-            <!--style="color: orange"></i>-->
-            <!--{{post.userScore}}{{post.metaScore}}</h4><button class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>-->
         </div>
 
         <div ng-repeat="post in posts3 | filter:customFilter | limitTo: 1" ng-show="!rating">
@@ -605,11 +558,6 @@
                             {{post.userScore}}{{post.metaScore}}</h4>
                         <a ng-href="{{post.url}}" target="_blank"><button  class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button></a><a ng-href="{{post.urlN}}" target="_blank"><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></a>
                         </span>
-            <!--<a target="_blank" value="{{post.genre}}" style=width:auto; ng-href="{{post.url}}" class="list-group-item posts2"><img-->
-            <!--onerror="this.style.display='none';" style="width:100px; height:116px;" ng-src="{{post.img}}">-->
-            <!--<h4>{{post.title}} - [{{post.year}}] - <i class="fa fa-star-o"-->
-            <!--style="color: orange"></i>-->
-            <!--{{post.userScore}}{{post.metaScore}}</h4><h4><button class="btn btn-default">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button><button class="btn btn-default"><i class="fa fa-play-circle fa-2"></i></button></h4></a>-->
         </div>
         <br>
         <button ng-click="shuffle()" class="btn btn-default"><i  class="fa fa-refresh"></i></button>
