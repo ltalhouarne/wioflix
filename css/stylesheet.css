@@ -1,5 +1,5 @@
 #iBody {
-    background: url('img/blur2.jpg') no-repeat center fixed;
+    background: url('blur2.jpg') no-repeat center fixed;
 }
 
 #footer {
@@ -242,6 +242,16 @@
         min-width: 0;
     }
 
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.42;
+    border-radius: 15px;
 }
 
 
