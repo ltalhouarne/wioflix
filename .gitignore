@@ -2,8 +2,6 @@ node_modules/
 
 .idea
 
-controller.js
-
 # OS generated files #
 ######################
 .DS_Store
