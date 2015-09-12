@@ -1,12 +1,5 @@
-# wioflix
+# Whatisonnetflix.com
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+![alt](https://github.com/ltalhouarne/whatisonnetflix/blob/master/img/screenshot.png)
