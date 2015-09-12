@@ -1,0 +1,99 @@
+<div id="metacritic" class="container aligned100 heighthv" ng-show="link3 && !link2 && !link1 && !link4 && !link5"
+     ng-controller="PostsCtrl3">
+    <div class="navbar-outer"
+         style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="width:35px; height:auto; text-align: center; margin-top:-7px;" src="css/met.jpeg">
+
+                    </a>
+                </div>
+                <div id="navbar3" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="text-align:center;">
+                                <li><a class="toClick" href="" role="button" ng-click="category='Any'"> <b>Any</b></a>
+                                </li>
+                                <br>
+
+                                <div ng-repeat="post in posts">
+                                    <li><a href="" ng-click="$parent.category=post.Genre; open()">
+                                        &nbsp;{{post.Genre}}</a></li>
+                                </div>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="search" class="form-control smallW" ng-model="search"
+                                   placeholder="Search title or year...">
+                        </div>
+
+                    </form>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
+                            <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
+                        </div>
+
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="list-group">
+        <h5>Genre: {{category}}</h5>
+        <br>
+
+        <div class="alignedDi">
+            <div ng-repeat="post in posts2 | filter:search | filter:customFilter" class="repeated-item"
+                 ng-show="rating">
+                <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+                <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;">{{post.year}} - <i
+                        class="fa fa-star-o"
+                        style="color: orange"></i>
+                    {{post.userScore}}{{post.metaScore}}</span></h4>
+                <a ng-href="{{post.url}}" target="_blank">
+                    <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button>
+                </a><a ng-href="{{post.urlN}}" target="_blank">
+                    <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+                </a>
+                </span>
+            </div>
+
+            <div ng-repeat="post in posts3 | filter:search| filter:customFilter" class="repeated-item"
+                 ng-show="!rating">
+                <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+                <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;"> {{post.year}} - <i
+                        class="fa fa-star-o"
+                        style="color: orange"></i>
+                    {{post.userScore}}{{post.metaScore}}</span></h4>
+                <a ng-href="{{post.url}}" target="_blank">
+                    <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button>
+                </a><a ng-href="{{post.urlN}}" target="_blank">
+                    <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+                </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>

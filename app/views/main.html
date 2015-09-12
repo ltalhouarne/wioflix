@@ -1,23 +1,833 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<body id="iBody" ng-controller="mainController">
+
+<div class="container">
+<br>
+
+<div class="jumbotron jumboHeight">
+
+    <h1 class="aligned">
+        <i class="fa fa-film"></i> What is on Netflix?
+        <div style="margin-left: 5px !important;" class="fb-like" data-href="http://www.whatisonnetflix.com/"
+             data-layout="box_count"
+             data-action="like" data-show-faces="true" data-share="true"></div>
+        <a class="twitter-share-button" href="https://twitter.com/share" data-related="twitterdev" data-size="large"
+           data-count="none"></a>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fimgur.com%2FOThvsjy&media=http%3A%2F%2Fi.imgur.com%2FOThvsjy.png&description=What%20is%20on%20Netflix%3F"
+           data-pin-do="buttonPin" data-pin-config="none" data-pin-color="red" data-pin-height="28"><img
+                src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png"/></a>
+    </h1>
+
+    <br>
+
+    <p class="lead aligned">Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on Netflix.
+        Updated every week.</p>
+    <br>
+
+    <div class="aligned" id="test">
+        <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button1M"
+                ng-click="link1 = !link1; link2 = false; link3 = false; link4 = false; link5 = false;"
+                type="button"
+                class="btn btn-primary btn-danger main-button" ng-click=""
+                ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                btn-checkbox-false="0"><h4>Rotten Tomatoes</h4></button>
+        &nbsp;
+
+
+        <button style="margin-right: -1px !important; margin-top: 4px !important;" id="button2M"
+                ng-click="link2 = !link2; link1 = false; link3 = false; link4=false; link5 = false;"
+                type="button"
+                class="btn btn-primary btn-warning main-button" ng-click=""
+                ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                btn-checkbox-false="0"><h4>IMDB</h4></button>
+        <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button3M"
+                ng-click="link3 = !link3; link2 = false; link1 = false; link4=false; link5 = false;"
+                type="button"
+                class="btn btn-primary btn-success main-button" ng-click=""
+                ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                btn-checkbox-false="0"><h4>Metacritic</h4></button>
+        <br>
+        <br>
+        <button style="margin-top: 4px !important;" id="button4M"
+                ng-click="link4 = !link4; link3 = false; link2 = false; link1 = false; link5 = false;"
+                type="button"
+                class="btn btn-default main-button" ng-click=""
+                ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                btn-checkbox-false="0"><h4>New on Netflix</h4></button>
+
+        <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button5M"
+                ng-click="link5 = !link5; link3 = false; link2 = false; link1 = false; link4 = false;"
+                type="button"
+                class="btn btn-info main-button" ng-click=""
+                ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                btn-checkbox-false="0"><h4>Random Pick</h4></button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <b>Mentioned in: </b>&nbsp;&nbsp;
+
+        <a href="http://gizmodo.com/youll-never-not-know-what-to-watch-on-netflix-again-1652563893"><img
+                src="images/download.jpeg" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://www.avclub.com/article/handy-website-will-help-you-decide-what-watch-netf-211136"><img
+                src="images/Avclub_logo.png" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://lifehacker.com/what-is-on-netflix-uses-rotten-tomatoes-and-imdb-to-he-1652775508"><img
+                src="images/Lifehacker_Logo.png" style="height:25px; width:auto;" alt=“”></a>
+
+        <a href="http://mic.com/articles/102668/finally-the-perfect-website-to-help-you-pick-netflix-movies"><img
+                src="images/mic.jpeg" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://coolmaterial.com/media/find-the-best-movies-to-stream-with-what-is-on-netflix/"><img
+                src="images/cool.jpeg" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://www.slashgear.com/movie-watching-just-got-easier-with-what-is-on-netflix-31353334/"><img
+                src="images/slash.jpeg" style="height:25px; width:auto;" alt=“”></a>
+
+        </a>&nbsp;&nbsp;
+
+        <a href="http://uproxx.com/movies/2014/10/this-netflix-tool-might-save-you-time-the-next-time-youre-searching-for-a-movie/"><img
+                src="images/uproxx.jpeg" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://www.idigitaltimes.com/want-best-netflix-movies-new-website-uses-imdb-and-rotten-tomatoes-so-you-dont-have-392310"><img
+                src="images/digital.png" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://dailytekk.com/app/what-is-on-netflix/"><img src="images/dailytekk.png"
+                                                                    style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <a href="http://www.techhive.com/article/218797/netflix-power-tools.html"><img src="images/hive.png"
+                                                                                       style="height:25px; width:auto;"
+                                                                                       alt=“”></a>&nbsp;&nbsp;
+        <a href="http://www.cnet.com/how-to/four-netflix-tips-and-tricks-to-improve-your-viewing-experience/"><img
+                src="images/cnet.png" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
+
+        <br>
+        <br>
+        <a href="https://play.google.com/store/apps/details?id=com.wionflix.Wioflix" target="_blank">
+            <img alt="Get it on Google Play"
+                 src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png"/>
+        </a>
+        <a href="https://itunes.apple.com/us/app/wioflix/id957204575?mt=8&ign-mpt=uo%3D4" target="_blank">
+            <img class="right"
+                 src="images/Download_on_the_App_Store_Badge_US-UK_135x40.svg" width="140" height="70" alt="">
+        </a>
+
+
+    </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div id="navigation" class="jumbotron" ng-show="link1 || link2 || link3 || link4 || link5">
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+<div id="metacritic" class="container aligned100 heighthv" ng-show="link3 && !link2 && !link1 && !link4 && !link5"
+     ng-controller="PostsCtrl3">
+    <div class="navbar-outer"
+         style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="width:35px; height:auto; text-align: center; margin-top:-7px;" src="images/met.jpeg">
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+                    </a>
+                </div>
+                <div id="navbar3" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="text-align:center;">
+                                <li><a class="toClick" href="" role="button" ng-click="category='Any'"> <b>Any</b></a>
+                                </li>
+                                <br>
+
+                                <div ng-repeat="post in posts">
+                                    <li><a href="" ng-click="$parent.category=post.Genre; open()">
+                                        &nbsp;{{post.Genre}}</a></li>
+                                </div>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="search" class="form-control smallW" ng-model="search"
+                                   placeholder="Search title or year...">
+                        </div>
+
+                    </form>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
+                            <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
+                        </div>
+
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="list-group">
+        <h5>Genre: {{category}}</h5>
+        <br>
+
+        <div class="alignedDi">
+            <div ng-repeat="post in posts2 | filter:search | filter:customFilter" class="repeated-item"
+                 ng-show="rating">
+                <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+                <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;">{{post.year}} - <i
+                        class="fa fa-star-o"
+                        style="color: orange"></i>
+                    {{post.userScore}}{{post.metaScore}}</span></h4>
+                <a ng-href="{{post.url}}" target="_blank">
+                    <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button>
+                </a><a ng-href="{{post.urlN}}" target="_blank">
+                    <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+                </a>
+                </span>
+            </div>
+
+            <div ng-repeat="post in posts3 | filter:search| filter:customFilter" class="repeated-item"
+                 ng-show="!rating">
+                <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+                <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;"> {{post.year}} - <i
+                        class="fa fa-star-o"
+                        style="color: orange"></i>
+                    {{post.userScore}}{{post.metaScore}}</span></h4>
+                <a ng-href="{{post.url}}" target="_blank">
+                    <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button>
+                </a><a ng-href="{{post.urlN}}" target="_blank">
+                    <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+                </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<div id="Rotten Tomatoes" class="container aligned100 heighthv" ng-show="link1 && !link2 && !link3 && !link4 && !link5"
+     ng-controller="PostsCtrl2">
+    <br>
+
+    <div class="navbar-outer"
+         style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="width:50px; height:auto; text-align: center; margin-top:-10px;" src="images/rt.png">
+                    </a>
+                </div>
+                <div id="navbar2" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="text-align:center;">
+                                <li><a class="toClick" href="" role="button" ng-click="category='Any'"> <b>Any</b></a>
+                                </li>
+                                <br>
+
+                                <div ng-repeat="post in posts3">
+                                    <li><a href="" ng-click="$parent.category=post.Genre; open()">
+                                        &nbsp;{{post.Genre}}</a></li>
+                                </div>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="search" class="form-control smallW" ng-model="search"
+                                   placeholder="Search title or year...">
+                        </div>
+
+                    </form>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <button type="radio" class="btn btn-default" ng-click="rating=true">Tomatometer</button>
+                            <button type="radio" class="btn btn-default" ng-click="rating=false">Audience</button>
+                        </div>
+
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="list-group">
+        <div class="alignedDi">
+            <h5>Genre: {{category}}</h5>
+            <br>
+
+            <div ng-repeat="post in posts | filter:search | filter:customFilter" class="aligned height repeated-item"
+                 ng-show="rating">
+
+                <span ng-switch="" on="$index % 3">
+                            <div class="row" ng-switch-when="0">
+                                <div class="col-sm-4">
+                                    <div class="thumbnail" style="min-height:400px;height:400px;">
+                                        <img ng-src="{{posts[($index+0)].imgN}}" alt="...">
+
+                                        <div class="caption">
+                                            <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{posts[($index+0)].title}}
+                                            </h5>
+                                            <h4 style="font-weight: 200">{{posts[($index+0)].year}} - <i
+                                                    class="fa fa-star-o" style="color: orange"></i>{{posts[($index+0)].rating}}
+                                            </h4>
+
+                                            <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                             class="btn btn-danger"
+                                                                                                             role="button"><span
+                                                    class="glyphicon glyphicon-facetime-video"
+                                                    aria-hidden="true"></span> Watch it!</a></p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="thumbnail" style="min-height:400px;height:400px;">
+                                        <img ng-src="{{posts[($index+1)].imgN}}" alt="...">
+
+                                        <div class="caption">
+                                            <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{posts[($index+1)].title}}
+                                            </h5>
+                                            <h4 style="font-weight: 200">{{posts[($index+1)].year}} - <i
+                                                    class="fa fa-star-o" style="color: orange"></i>{{posts[($index+1)].rating}}
+                                            </h4>
+
+                                            <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                             class="btn btn-danger"
+                                                                                                             role="button"><span
+                                                    class="glyphicon glyphicon-facetime-video"
+                                                    aria-hidden="true"></span> Watch it!</a></p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="thumbnail" style="min-height:400px;height:400px;">
+                                        <img ng-src="{{posts[($index+2)].imgN}}" alt="...">
+
+                                        <div class="caption">
+                                            <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{posts[($index+2)].title}}
+                                            </h5>
+                                            <h4 style="font-weight: 200">{{posts[($index+2)].year}} - <i
+                                                    class="fa fa-star-o" style="color: orange"></i>{{posts[($index+2)].rating}}
+                                            </h4>
+
+                                            <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                             class="btn btn-danger"
+                                                                                                             role="button"><span
+                                                    class="glyphicon glyphicon-facetime-video"
+                                                    aria-hidden="true"></span> Watch it!</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+          </span>
+            </div>
+
+            <div ng-repeat="post in posts2 | filter:search| filter:customFilter" class="aligned height repeated-item"
+                 ng-show="!rating">
+                <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+                <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;"> {{post.year}} - <i
+                        class="fa fa-star-o"
+                        style="color: orange"></i>
+                    {{post.userRating}}</span></h4>
+                <a ng-href="{{post.url}}" target="_blank">
+                    <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button>
+                </a><a ng-href="{{post.urlN}}" target="_blank">
+                    <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+                </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="imdb Container" class="container aligned100 heighthv" ng-show="link2 && !link1 && !link3 && !link4 && !link5"
+     ng-controller="PostsCtrl">
+
+    <div class="navbar-outer"
+         style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="width:50px; height:auto; text-align: center;" src="images/imdb.png">
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="text-align:center;">
+                                <li><a class="toClick" href="" role="button" ng-click="category='Any'"> <b>Any</b></a>
+                                </li>
+                                <br>
+
+                                <div ng-repeat="post in posts3">
+                                    <li><a href="" ng-click="$parent.category=post.Genre; open()">
+                                        &nbsp;{{post.Genre}}</a></li>
+                                </div>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="search" class="form-control smallW" ng-model="search"
+                                   placeholder="Search title or year...">
+                        </div>
+
+                    </form>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <button type="radio" class="btn btn-default" ng-click="type=true">Movies</button>
+                            <button type="radio" class="btn btn-default" ng-click="type=false">Shows</button>
+                        </div>
+
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="list-group">
+
+        <div class="alignedDi">
+            <h5>Genre: {{category}}</h5>
+            <br>
+
+            <div id="moviesImdb" ng-repeat="post in posts | filter:search | filter:customFilter" ng-show="type"
+                 class="repeated-item">
+                <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+
+                            <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                            <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;"> {{post.year}} - <i
+                                    class="fa fa-star-o"
+                                    style="color: orange"></i>
+                                {{post.rating}}</span></h4>
+                                                    <a ng-href="{{post.url}}" target="_blank">
+                                                        <button class="btn btn-default btn-circle">&nbsp;<i
+                                                                class="fa fa-info fa-2">&nbsp; </i></button>
+                                                    </a><a ng-href="{{post.urlN}}" target="_blank">
+                    <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+                </a>
+                </span>
+            </div>
+
+            <div id="showsImdb" ng-repeat="post in posts2 | filter:search | filter:customFilter" ng-show="!type"
+                 class="repeated-item">
+               <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
+                <img onerror="this.style.display='none';" class="spec" ng-src="{{post.imgN}}">
+                <h4>{{post.title}} <br> <span style="font-weight: 200; font-size:.8em;"> {{post.year}} - <i
+                        class="fa fa-star-o"
+                        style="color: orange"></i>
+                    {{post.rating}}</span></h4>
+                <a ng-href="{{post.url}}" target="_blank">
+                    <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i></button>
+                </a><a ng-href="{{post.urlN}}" target="_blank">
+                   <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i></button>
+               </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="new Releases" class="container aligned100" ng-show="link4 && !link1 && !link3 && !link2 && !link5"
+     ng-controller="PostsCtrl4">
+
+    <div class="alignedDi">
+        <button id="recentlyAdded" type="radio" class="btn btn-default" ng-click="type=true">Recently Added</button>
+        <button id="newReleases" type="radio" class="btn btn-default" ng-click="type=false">New Releases</button>
+        <br>
+        <br>
+
+        <div ng-repeat="post in posts" ng-show="type == true">
+                        <span ng-switch="" on="$index % 3">
+                            <div class="row" ng-switch-when="0">
+                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+0)].url}}"
+                                                         class="thumbnail"><img onerror="this.style.display='none';"
+                                                                                ng-src="{{posts[($index+0)].img}}"
+                                                                                alt=""></a></div>
+                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+1)].url}}"
+                                                         class="thumbnail"><img onerror="this.style.display='none';"
+                                                                                ng-src="{{posts[($index+1)].img}}"
+                                                                                alt=""></a></div>
+                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+2)].url}}"
+                                                         class="thumbnail"><img onerror="this.style.display='none';"
+                                                                                ng-src="{{posts[($index+2)].img}}"
+                                                                                alt=""></a></div>
+                            </div>
+
+                        </span>
+
+
+        </div>
+        <div ng-repeat="post in posts2" ng-show="type == false">
+                        <span ng-switch="" on="$index % 3">
+                            <div class="row" ng-switch-when="0">
+                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+0)].url}}"
+                                                         class="thumbnail"><img onerror="this.style.display='none';"
+                                                                                ng-src="{{posts2[($index+0)].img}}"
+                                                                                alt=""></a></div>
+                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+1)].url}}"
+                                                         class="thumbnail"><img onerror="this.style.display='none';"
+                                                                                ng-src="{{posts2[($index+1)].img}}"
+                                                                                alt=""></a></div>
+                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+2)].url}}"
+                                                         class="thumbnail"><img onerror="this.style.display='none';"
+                                                                                ng-src="{{posts2[($index+2)].img}}"
+                                                                                alt=""></a></div>
+                            </div>
+
+                        </span>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="Random pick" class="container aligned100" ng-show="link5 && !link1 && !link3 && !link2 && !link4">
+<div class="panel panel-info">
+<div class="panel-heading" style="text-align: center;">
+    <h3 class="panel-title">Random Pick</h3>
+</div>
+<div class="panel-body" style="text-align: center;">
+
+<div class="alignedDi">
+
+<div class="btn-group">
+
+    <br>
+
+
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        From <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" style="text-align: center;">
+        <li><a href="" ng-click="imdb=true; rt = false; meta=false; all= false;">IMDB</a></li>
+        <li><a href="" ng-click="rt=true; imdb = false; meta=false; all= false;">Rotten Tomatoes</a></li>
+        <li><a href="" ng-click="meta=true; rt = false; imdb=false; all= false;">Metacritic</a></li>
+        <li><a href="" ng-click="all=true; rt = false; meta=false; imdb= false;">Any</a></li>
+    </ul>
+</div>
+<br>
+
+<div ng-show="imdb || rt || meta || all">
+<br>
+    <span ng-show="imdb || all">&nbsp;&nbsp;<img style="width:100px; height:auto; text-align: center;"
+                                                 src="images/imdb.png">&nbsp;&nbsp;</span>
+    <span ng-show="meta || all">&nbsp;&nbsp;<img style="width:50px; height:auto; text-align: center;"
+                                                 src="images/met.jpeg">&nbsp;&nbsp;</span>
+<span ng-show="rt || all">&nbsp;&nbsp;<img style="width:80px; height:auto; text-align: center;" src="images/rt.png">&nbsp;&nbsp;</span>
+<br>
+
+<div ng-controller="PostsCtrlShuffleImdb" ng-show="imdb">
+    <div class="btn-group">
+        <br>
+        <button id="ulImdb" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Genre <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" style="text-align: center;">
+            <li><a class="toClick" href="" role="button" ng-click="category='Any'; showImdb=true;"> <b>Any</b></a>
+            </li>
+            <br>
+
+            <div ng-repeat="post in posts3">
+                <li><a href="" ng-click="showImdb=true; $parent.category=post.Genre; shuffle();"> &nbsp;{{post.Genre}}</a>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div ng-show="showImdb || category!='Any'">
+        <br>
+        <h5>{{category}}</h5>
+        <br>
+        Here's our pick for you:
+        <br> <br>
+
+        <div ng-repeat="post in filteredResults = (posts | filter:customFilter | limitTo: 1)">
+                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
+                                   ng-src="{{post.imgN}}">
+                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
+                                                                style="color: orange"></i>
+                            {{post.rating}}</h4>
+                        <a ng-href="{{post.url}}" target="_blank">
+                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
+                            </button>
+                        </a><a ng-href="{{post.urlN}}" target="_blank">
+                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
+                                </button>
+                            </a>
+                        </span>
+        </div>
+        <br>
+        <button ng-click="shuffle()" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+    </div>
+
+</div>
+
+<div ng-controller="PostsCtrlShuffleRt" ng-show="rt">
+    <div class="btn-group">
+        <br>
+        <br>
+        <button id="ulrt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Genre <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" style="text-align: center;">
+            <li><a class="toClick" href="" role="button" ng-click="category='Any'; showRT=true; rat=true;">
+                <b>Any</b></a></li>
+            <br>
+
+            <div ng-repeat="post in posts3">
+                <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
+                </li>
+            </div>
+        </ul>
+        <br>
+
+    </div>
+
+    <div ng-show="rat || category!='Any'">
+        <br>
+        <h5>{{category}}</h5>
+        <br>
+
+        <div class="form-group">
+            <button type="radio" class="btn btn-default" ng-click="rating=true">Tomatometer</button>
+            <button type="radio" class="btn btn-default" ng-click="rating=false">Audience</button>
+        </div>
+    </div>
+
+    <div ng-show="(showRT || category!='Any') && rating !='null'">
+        Here's our pick for you:
+        <br>
+        <br>
+
+        <div ng-repeat="post in posts | filter:customFilter | limitTo: 1" class="aligned height" ng-show="rating">
+                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
+                                   ng-src="{{post.imgN}}">
+                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
+                                                                style="color: orange"></i>
+                            {{post.rating}}</h4>
+                        <a ng-href="{{post.url}}" target="_blank">
+                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
+                            </button>
+                        </a><a ng-href="{{post.urlN}}" target="_blank">
+                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
+                                </button>
+                            </a>
+                        </span>
+        </div>
+
+        <div ng-repeat="post in posts2 | filter:customFilter | limitTo: 1" class="aligned height" ng-show="!rating">
+                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
+                                   ng-src="{{post.imgN}}">
+                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
+                                                                style="color: orange"></i>
+                            {{post.userRating}}</h4>
+                        <a ng-href="{{post.url}}" target="_blank">
+                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
+                            </button>
+                        </a><a ng-href="{{post.urlN}}" target="_blank">
+                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
+                                </button>
+                            </a>
+                        </span>
+        </div>
+        <br>
+        <button ng-click="shuffle()" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+    </div>
+
+</div>
+
+<div ng-controller="PostsCtrl3ShuffleMc" ng-show="meta">
+    <div class="btn-group">
+        <br>
+        <button id="ulmeta" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Genre <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" style="text-align: center;">
+            <li><a class="toClick" href="" role="button" ng-click="category='Any'; showMeta=true; rat=true;">
+                <b>Any</b></a></li>
+            <br>
+
+            <div ng-repeat="post in posts">
+                <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <div ng-show="rat || category!='Any'">
+        <br>
+        <h5>{{category}}</h5>
+        <br>
+
+        <div class="form-group">
+            <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
+            <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
+        </div>
+    </div>
+
+    <div ng-show="(showMeta || category!='Any') && rating !='null'">
+        Here's our pick for you:
+        <br>
+        <br>
+
+        <div ng-repeat="post in posts2 | filter:customFilter | limitTo: 1" ng-show="rating">
+                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
+                                   ng-src="{{post.imgN}}">
+                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
+                                                                style="color: orange"></i>
+                            {{post.userScore}}{{post.metaScore}}</h4>
+                        <a ng-href="{{post.url}}" target="_blank">
+                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
+                            </button>
+                        </a><a ng-href="{{post.urlN}}" target="_blank">
+                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
+                                </button>
+                            </a>
+                        </span>
+        </div>
+
+        <div ng-repeat="post in posts3 | filter:customFilter | limitTo: 1" ng-show="!rating">
+                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
+                                   ng-src="{{post.imgN}}">
+                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
+                                                                style="color: orange"></i>
+                            {{post.userScore}}{{post.metaScore}}</h4>
+                        <a ng-href="{{post.url}}" target="_blank">
+                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
+                            </button>
+                        </a><a ng-href="{{post.urlN}}" target="_blank">
+                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
+                                </button>
+                            </a>
+                        </span>
+        </div>
+        <br>
+        <button ng-click="shuffle()" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+    </div>
+
+</div>
+
+<div ng-controller="PostsCtrlShuffleAll" ng-show="all">
+    <div class="btn-group">
+        <br>
+        <button id="ulall" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Genre <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" style="text-align: center;">
+            <li><a class="toClick" href="" role="button" ng-click="category='Any'; showAll=true;"> <b>Any</b></a>
+            </li>
+            <br>
+
+            <div ng-repeat="post in posts">
+                <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <div ng-show="showAll || category!='Any'">
+        <br>
+        <h5>{{category}}</h5>
+        <br>
+        <br>
+        Here's our pick for you:
+        <br>
+        <br>
+
+        <div ng-repeat="post in filteredResults = (posts2 | filter:customFilter | limitTo: 1)" class="animated">
+                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
+                                   ng-src="{{post.imgN}}">
+                            <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o" style="color: orange"></i>
+                                {{post.rating}}{{post.userScore}}{{post.metaScore}}{{post.userRating}}</h4>
+                            <a ng-href="{{post.url}}" target="_blank">
+                                <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
+                                </button>
+                            </a><a ng-href="{{post.urlN}}" target="_blank">
+                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
+                                </button>
+                            </a>
+                        </span>
+        </div>
+        <br>
+        <button ng-click="shuffle()" class="btn btn-default"><i class="fa fa-refresh"></i></button>
+    </div>
+
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+<div id="footer">
+    <i class="fa fa-university"></i> This website does not have any affiliation with IMDB, Metacritic, Netflix or
+    Rotten
+    Tomatoes.
+    <br>
+    <a href="mailto:whatisonnetflix@hotmail.com">Suggestions/Questions?</a>
+</div>
+
+</div>
+</body>
