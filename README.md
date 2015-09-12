@@ -9,4 +9,5 @@ Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 Run the following commands at the root of the project:
 
 `npm install`
+
 `grunt serve`
