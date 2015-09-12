@@ -15,19 +15,16 @@
         <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fimgur.com%2FOThvsjy&media=http%3A%2F%2Fi.imgur.com%2FOThvsjy.png&description=What%20is%20on%20Netflix%3F"
            data-pin-do="buttonPin" data-pin-config="none" data-pin-color="red" data-pin-height="28"><img
                 src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png"/></a>
-    </h1>
-
-    <br>
+    </h1><br>
 
     <p class="lead aligned">Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on Netflix.
-        Updated every week.</p>
-    <br>
+        Updated every week.</p><br>
 
     <div class="aligned" id="test">
         <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button1M"
                 ng-click="link1 = !link1; link2 = false; link3 = false; link4 = false; link5 = false;"
                 type="button"
-                class="btn btn-primary btn-danger main-button" ng-click=""
+                class="btn btn-primary btn-danger main-button"
                 ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                 btn-checkbox-false="0"><h4>Rotten Tomatoes</h4></button>
         &nbsp;
@@ -36,37 +33,30 @@
         <button style="margin-right: -1px !important; margin-top: 4px !important;" id="button2M"
                 ng-click="link2 = !link2; link1 = false; link3 = false; link4=false; link5 = false;"
                 type="button"
-                class="btn btn-primary btn-warning main-button" ng-click=""
+                class="btn btn-primary btn-warning main-button"
                 ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                 btn-checkbox-false="0"><h4>IMDB</h4></button>
         <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button3M"
                 ng-click="link3 = !link3; link2 = false; link1 = false; link4=false; link5 = false;"
                 type="button"
-                class="btn btn-primary btn-success main-button" ng-click=""
+                class="btn btn-primary btn-success main-button"
                 ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
-                btn-checkbox-false="0"><h4>Metacritic</h4></button>
-        <br>
-        <br>
+                btn-checkbox-false="0"><h4>Metacritic</h4></button><br><br>
         <button style="margin-top: 4px !important;" id="button4M"
                 ng-click="link4 = !link4; link3 = false; link2 = false; link1 = false; link5 = false;"
                 type="button"
-                class="btn btn-default main-button" ng-click=""
+                class="btn btn-default main-button"
                 ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                 btn-checkbox-false="0"><h4>New on Netflix</h4></button>
 
         <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button5M"
                 ng-click="link5 = !link5; link3 = false; link2 = false; link1 = false; link4 = false;"
                 type="button"
-                class="btn btn-info main-button" ng-click=""
+                class="btn btn-info main-button"
                 ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                 btn-checkbox-false="0"><h4>Random Pick</h4></button>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br><br><br><br>
+
         <b>Mentioned in: </b>&nbsp;&nbsp;
 
         <a href="http://gizmodo.com/youll-never-not-know-what-to-watch-on-netflix-again-1652563893"><img
@@ -87,7 +77,7 @@
         <a href="http://www.slashgear.com/movie-watching-just-got-easier-with-what-is-on-netflix-31353334/"><img
                 src="images/slash.jpeg" style="height:25px; width:auto;" alt=“”></a>
 
-        </a>&nbsp;&nbsp;
+        &nbsp;&nbsp;
 
         <a href="http://uproxx.com/movies/2014/10/this-netflix-tool-might-save-you-time-the-next-time-youre-searching-for-a-movie/"><img
                 src="images/uproxx.jpeg" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
@@ -104,8 +94,8 @@
         <a href="http://www.cnet.com/how-to/four-netflix-tips-and-tricks-to-improve-your-viewing-experience/"><img
                 src="images/cnet.png" style="height:25px; width:auto;" alt=“”></a>&nbsp;&nbsp;
 
-        <br>
-        <br>
+        <br><br>
+
         <a href="https://play.google.com/store/apps/details?id=com.wionflix.Wioflix" target="_blank">
             <img alt="Get it on Google Play"
                  src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png"/>
@@ -114,8 +104,6 @@
             <img class="right"
                  src="images/Download_on_the_App_Store_Badge_US-UK_135x40.svg" width="140" height="70" alt="">
         </a>
-
-
     </div>
 </div>
 
@@ -136,8 +124,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img style="width:35px; height:auto; text-align: center; margin-top:-7px;" src="images/met.jpeg">
-
+                        <img style="width:35px; height:auto; text-align: center; margin-top:-7px;"
+                             src="images/met.jpeg">
                     </a>
                 </div>
                 <div id="navbar3" class="navbar-collapse collapse">
@@ -155,25 +143,20 @@
                                 </div>
                             </ul>
                         </li>
-
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <input type="search" class="form-control smallW" ng-model="search"
                                    placeholder="Search title or year...">
                         </div>
-
                     </form>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
                             <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
                             <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
                         </div>
-
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-
-
                     </ul>
                 </div>
             </div>
@@ -183,7 +166,6 @@
     <div class="list-group">
         <h5>Genre: {{category}}</h5>
         <br>
-
         <div class="alignedDi">
             <div ng-repeat="post in posts2 | filter:search | filter:customFilter" class="repeated-item"
                  ng-show="rating">
@@ -200,7 +182,6 @@
                 </a>
                 </span>
             </div>
-
             <div ng-repeat="post in posts3 | filter:search| filter:customFilter" class="repeated-item"
                  ng-show="!rating">
                 <span value="{{post.genre}}" style="width:auto;" class="list-group-item posts2">
@@ -374,7 +355,8 @@
     </div>
 </div>
 
-<div id="imdb Container" class="container aligned100 heighthv" ng-show="link2 && !link1 && !link3 && !link4 && !link5"
+<div id="imdb Container" class="container aligned100 heighthv"
+     ng-show="link2 && !link1 && !link3 && !link4 && !link5"
      ng-controller="PostsCtrl">
 
     <div class="navbar-outer"
@@ -482,8 +464,7 @@
     <div class="alignedDi">
         <button id="recentlyAdded" type="radio" class="btn btn-default" ng-click="type=true">Recently Added</button>
         <button id="newReleases" type="radio" class="btn btn-default" ng-click="type=false">New Releases</button>
-        <br>
-        <br>
+        <br><br>
 
         <div ng-repeat="post in posts" ng-show="type == true">
                         <span ng-switch="" on="$index % 3">
@@ -503,8 +484,6 @@
                             </div>
 
                         </span>
-
-
         </div>
         <div ng-repeat="post in posts2" ng-show="type == false">
                         <span ng-switch="" on="$index % 3">
@@ -524,8 +503,6 @@
                             </div>
 
                         </span>
-
-
         </div>
     </div>
 </div>
@@ -577,7 +554,8 @@
             <br>
 
             <div ng-repeat="post in posts3">
-                <li><a href="" ng-click="showImdb=true; $parent.category=post.Genre; shuffle();"> &nbsp;{{post.Genre}}</a>
+                <li><a href="" ng-click="showImdb=true; $parent.category=post.Genre; shuffle();">
+                    &nbsp;{{post.Genre}}</a>
                 </li>
             </div>
         </ul>
@@ -819,8 +797,6 @@
 
 </div>
 
-</div>
-
 <div id="footer">
     <i class="fa fa-university"></i> This website does not have any affiliation with IMDB, Metacritic, Netflix or
     Rotten
@@ -829,5 +805,4 @@
     <a href="mailto:whatisonnetflix@hotmail.com">Suggestions/Questions?</a>
 </div>
 
-</div>
 </body>
