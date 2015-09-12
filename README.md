@@ -6,8 +6,11 @@ Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 
 # How to run?
 
-Run the following commands at the root of the project:
+1) Navigate to the root of the project
+2) Run the following commands upon completion of the previous one:
 
 `npm install`
+
+`bower install`
 
 `grunt serve`
