@@ -15,3 +15,4 @@ Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 `bower install`
 
 `grunt serve`
+
