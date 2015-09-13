@@ -3,6 +3,7 @@
         <button id="recentlyAdded" type="radio" class="btn btn-default" ng-click="type=true">Recently Added</button>
         <button id="newReleases" type="radio" class="btn btn-default" ng-click="type=false">New Releases</button>
         <br><br>
+
         <div ng-repeat="post in posts" ng-show="type == true">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">

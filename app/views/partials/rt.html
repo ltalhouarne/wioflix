@@ -13,7 +13,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img style="width:50px; height:auto; text-align: center; margin-top:-10px;" src="../../images/rt.png">
+                        <img style="width:50px; height:auto; text-align: center; margin-top:-10px;"
+                             src="../../images/rt.png">
                     </a>
                 </div>
                 <div id="navbar2" class="navbar-collapse collapse">
@@ -28,7 +29,6 @@
                             <button type="radio" class="btn btn-default" ng-click="rating=true">Tomatometer</button>
                             <button type="radio" class="btn btn-default" ng-click="rating=false">Audience</button>
                         </div>
-
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                     </ul>
@@ -63,7 +63,6 @@
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{posts[(posts.indexOf(post))].imgN}}"
                                                               alt=""></a>
-
                                     <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{posts[(posts.indexOf(post))].title}}
                                     </h5>
                                     <h4 style="font-weight: 200">{{posts[(posts.indexOf(post))].year}} - <i
@@ -75,14 +74,12 @@
                                                                                                      role="button"><span
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
-
                                 </div>
                                 <div class="col-sm-4">
                                     <a target="_blank" ng-href="{{posts[(posts.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{posts[(posts.indexOf(post) + 1)].imgN}}"
                                                               alt=""></a>
-
                                     <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{posts[(posts.indexOf(post) +
                                         1)].title}}
                                     </h5>
@@ -96,14 +93,12 @@
                                                                                                      role="button"><span
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
-
                                 </div>
                                 <div class="col-sm-4">
                                     <a target="_blank" ng-href="{{posts[(posts.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{posts[(posts.indexOf(post) + 2)].imgN}}"
                                                               alt=""></a>
-
                                     <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{posts[(posts.indexOf(post) +
                                         2)].title}}
                                     </h5>
@@ -117,13 +112,11 @@
                                                                                                      role="button"><span
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
-
                                 </div>
                             </div>
-          </span>
+                    </span>
                 </div>
             </div>
-
             <div ng-show="!rating">
                 <h5>Genre: {{categoryAudience}} <a href="" style="text-decoration: none"
                                                    ng-click="categoryAudience='Any'"><span style="margin-bottom: -5px;"

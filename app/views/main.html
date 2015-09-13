@@ -1,6 +1,7 @@
 <body id="iBody" ng-controller="mainController">
 <div class="container">
     <br>
+
     <div class="jumbotron jumboHeight">
         <h1 class="aligned">
             <i class="fa fa-film"></i> What is on Netflix?
@@ -15,7 +16,8 @@
         </h1>
         <br>
 
-        <p class="lead aligned">Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on Netflix.
+        <p class="lead aligned">Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on
+            Netflix.
             Updated every week.</p><br>
 
         <div class="aligned" id="test">
@@ -59,15 +61,20 @@
     </div>
 
     <div id="navigation" class="jumbotron" ng-show="link1 || link2 || link3 || link4 || link5">
-        <div id="metacritic" class="container aligned100 heighthv"ng-if="link3 && !link2 && !link1 && !link4 && !link5" ng-include="'views/partials/mc.html'"></div>
+        <div id="metacritic" class="container aligned100 heighthv" ng-if="link3 && !link2 && !link1 && !link4 && !link5"
+             ng-include="'views/partials/mc.html'"></div>
 
-        <div id="Rotten Tomatoes"class="container aligned100 heighthv"ng-if="link1 && !link2 && !link3 && !link4 && !link5" ng-include="'views/partials/rt.html'"></div>
+        <div id="Rotten Tomatoes" class="container aligned100 heighthv"
+             ng-if="link1 && !link2 && !link3 && !link4 && !link5" ng-include="'views/partials/rt.html'"></div>
 
-        <div id="imdb Container" class="container aligned100 heighthv" ng-if="link2 && !link3 && !link1 && !link4 && !link5" ng-include="'views/partials/imdb.html'"></div>
+        <div id="imdb Container" class="container aligned100 heighthv"
+             ng-if="link2 && !link3 && !link1 && !link4 && !link5" ng-include="'views/partials/imdb.html'"></div>
 
-        <div id="new Releases" class="container aligned100" ng-if="link4 && !link1 && !link3 && !link2 && !link5" ng-include="'views/partials/releases.html'"></div>
+        <div id="new Releases" class="container aligned100" ng-if="link4 && !link1 && !link3 && !link2 && !link5"
+             ng-include="'views/partials/releases.html'"></div>
 
-        <div id="Random pick" class="container aligned100" ng-if="link5 && !link1 && !link3 && !link2 && !link4" ng-include="'views/partials/random.html'"></div>
+        <div id="Random pick" class="container aligned100" ng-if="link5 && !link1 && !link3 && !link2 && !link4"
+             ng-include="'views/partials/random.html'"></div>
     </div>
 </div>
 
