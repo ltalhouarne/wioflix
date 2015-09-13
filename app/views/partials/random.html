@@ -1,26 +1,17 @@
-<div class="panel panel-info">
-<div class="panel-heading" style="text-align: center;">
-    <h3 class="panel-title">Random Pick</h3>
-</div>
-<div class="panel-body" style="text-align: center;">
-
-<div class="alignedDi">
-
-<div class="btn-group">
-
-    <br>
-
-
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        From <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu" style="text-align: center;">
-        <li><a href="" ng-click="imdb=true; rt = false; meta=false; all= false;">IMDB</a></li>
-        <li><a href="" ng-click="rt=true; imdb = false; meta=false; all= false;">Rotten Tomatoes</a></li>
-        <li><a href="" ng-click="meta=true; rt = false; imdb=false; all= false;">Metacritic</a></li>
-        <li><a href="" ng-click="all=true; rt = false; meta=false; imdb= false;">Any</a></li>
-    </ul>
-</div>
+<div style="display: inline-block;">
+<h3><a id="topImdbSource" href="" style="text-decoration: none !important;"
+       ng-click="rt=false; imdb = true; meta=false; all= false;"><span class="label label-warning"
+                                                                       style="margin-right: 5px !important; margin-top:5px !important;">IMDB</span></a>
+    <a href="" style="text-decoration: none !important;"
+       ng-click="rt=true; imdb = false; meta=false; all= false;"><span class="label label-danger"
+                                                                       style="margin-right: 5px !important; margin-top:5px !important;">Rotten Tomatoes</span></a>
+    <a href="" style="text-decoration: none !important;"
+       ng-click="meta=true; rt = false; imdb=false; all= false;"><span class="label label-success"
+                                                                       style="margin-right: 5px !important; margin-top:5px !important;">Metacritic</span></a>
+    <a href="" style="text-decoration: none !important;"
+       ng-click="all=true; rt = false; meta=false; imdb= false;"><span class="label label-info"
+                                                                       style="margin-right: 5px !important; margin-top:5px !important;">All 3</span></a>
+</h3>
 <br>
 
 <div ng-show="imdb || rt || meta || all">
@@ -33,47 +24,45 @@
 <br>
 
 <div ng-controller="PostsCtrlShuffleImdb" ng-show="imdb">
-    <div class="btn-group">
-        <br>
-        <button id="ulImdb" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Genre <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" style="text-align: center;">
-            <li><a class="toClick" href="" role="button" ng-click="category='Any'; showImdb=true;"> <b>Any</b></a>
-            </li>
-            <br>
-
-            <div ng-repeat="post in posts3">
-                <li><a href="" ng-click="showImdb=true; $parent.category=post.Genre; shuffle();">
-                    &nbsp;{{post.Genre}}</a>
-                </li>
-            </div>
-        </ul>
+    <br>
+    <div id="topImdb" ng-repeat="post in posts3" style="display: inline-block;">
+        <h4><a id="imGenre{{$index}}" href="" style="text-decoration: none !important;"
+               ng-click="$parent.category=post.Genre"><span class="label label-default"
+                                                            style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
+        </h4>
     </div>
     <div ng-show="showImdb || category!='Any'">
         <br>
-        <h5>{{category}}</h5>
+        <h5>Genre: {{category}} </h5>
+        <br>
         <br>
         Here's our pick for you:
         <br> <br>
 
-        <div ng-repeat="post in filteredResults = (posts | filter:customFilter | limitTo: 1)">
-                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
-                                   ng-src="{{post.imgN}}">
-                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
-                                                                style="color: orange"></i>
-                            {{post.rating}}</h4>
-                        <a ng-href="{{post.url}}" target="_blank">
-                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
-                            </button>
-                        </a><a ng-href="{{post.urlN}}" target="_blank">
-                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
-                                </button>
-                            </a>
-                        </span>
+        <div id="topImdbResult" ng-repeat="post in filteredResults = (posts | filter:customFilter | limitTo: 1)">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a target="_blank" ng-href="{{post.url}}"
+                   class="thumbnail"><img onerror="this.style.display='none';"
+                                          ng-src="{{post.imgN}}"
+                                          alt=""></a>
+                <h5 style="font-weight: 400">{{post.title}}
+                </h5>
+                <h4 style="font-weight: 200">{{post.year}} - <i
+                        class="fa fa-star-o" style="color: orange"></i>
+                    {{post.rating}}
+                </h4>
+
+                <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                 class="btn btn-danger"
+                                                                                 role="button"><span
+                        class="glyphicon glyphicon-facetime-video"
+                        aria-hidden="true"></span> Watch it!</a></p>
+                <button ng-click="shuffle()" class="btn btn-default">New pick  <i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="col-sm-4"></div>
         </div>
         <br>
-        <button ng-click="shuffle()" class="btn btn-default"><i class="fa fa-refresh"></i></button>
     </div>
 
 </div>
@@ -274,8 +263,6 @@
 </div>
 
 
-</div>
-</div>
 </div>
 <br>
 <br>

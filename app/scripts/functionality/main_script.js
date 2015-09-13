@@ -32,4 +32,10 @@ $( document ).ready(function() {
     $("#newReleases").click(function(){
         $('html, body').animate({ scrollTop: $('#navigation').offset().top });
     });
+    $("#topImdbSource").click(function(){
+        $('html, body').animate({ scrollTop: $('#topImdb').offset().top });
+    });
+    $("[id^=imGenre]").click(function(){
+        $('html, body').animate({ scrollTop: $('#topImdbResult').offset().top });
+    });
 });

@@ -31,11 +31,18 @@ angular.module('wioflixApp')
         });
 
         $scope.type = true;
-        $scope.category = "Any";
+        $scope.categoryMovies = "Any";
+        $scope.categoryShows = "Any";
 
-        $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
+        $scope.customFilterMovies = function (data) {
+            if ($scope.categoryMovies === "Any") return true;
+            if (data.genres.toString().indexOf($scope.categoryMovies) > -1) return true;
+            return false;
+        };
+
+        $scope.customFilterShows = function (data) {
+            if ($scope.categoryShows === "Any") return true;
+            if (data.genres.toString().indexOf($scope.categoryShows) > -1) return true;
             return false;
         };
     })
@@ -100,12 +107,19 @@ angular.module('wioflixApp')
         });
 
         $scope.type = true;
-        $scope.category = "Any";
+        $scope.categoryCritic = "Any";
+        $scope.categoryUser = "Any";
         $scope.rating = true;
 
-        $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
+        $scope.customFilterCritic = function (data) {
+            if ($scope.categoryCritic === "Any") return true;
+            if (data.genres.toString().indexOf($scope.categoryCritic) > -1) return true;
+            return false;
+        };
+
+        $scope.customFilterUser = function (data) {
+            if ($scope.categoryUser === "Any") return true;
+            if (data.genres.toString().indexOf($scope.categoryUser) > -1) return true;
             return false;
         };
     })
