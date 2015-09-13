@@ -61,12 +61,19 @@ angular.module('wioflixApp')
             $scope.posts = data; // response data
         });
         $scope.type = true;
-        $scope.category = "Any";
+        $scope.categoryTomatometer = "Any";
+        $scope.categoryAudience = "Any";
         $scope.rating = true;
 
-        $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
+        $scope.customFilterTomatometer = function (data) {
+            if ($scope.categoryTomatometer === "Any") return true;
+            if (data.genres.toString().indexOf($scope.categoryTomatometer) > -1) return true;
+            return false;
+        };
+
+        $scope.customFilterAudience = function (data) {
+            if ($scope.categoryAudience === "Any") return true;
+            if (data.genres.toString().indexOf($scope.categoryAudience) > -1) return true;
             return false;
         };
     })
