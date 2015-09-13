@@ -1,0 +1,206 @@
+<div ng-controller="PostsCtrl2"><br>
+
+<div class="navbar-outer"
+     style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img style="width:50px; height:auto; text-align: center; margin-top:-10px;"
+                         src="../../images/rt.png">
+                </a>
+            </div>
+            <div id="navbar2" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="search" class="form-control smallW" ng-model="search"
+                               placeholder="Search title or year...">
+                    </div>
+                </form>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <button type="radio" class="btn btn-default" ng-click="rating=true">Tomatometer</button>
+                        <button type="radio" class="btn btn-default" ng-click="rating=false">Audience</button>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="list-group">
+    <div class="alignedDi">
+        <div ng-show="rating">
+            <h5>Genre: {{categoryTomatometer}} <a href="" style="text-decoration: none"
+                                                  ng-click="categoryTomatometer='Any'"><span
+                    style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
+                    aria-hidden="true"></span></a></h5>
+            <br>
+
+            <div ng-repeat="post in posts3" style="display: inline-block;">
+                <h4><a href="" style="text-decoration: none !important;"
+                       ng-click="$parent.categoryTomatometer=post.Genre"><span class="label label-default"
+                                                                               style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
+                </h4>
+            </div>
+            <br>
+            <br>
+
+            <div ng-repeat="post in posts | filter:search | filter:customFilterTomatometer"
+                 class="aligned height repeated-item">
+                <span ng-switch="" on="$index % 3">
+                            <div class="row" ng-switch-when="0">
+                                <div class="col-sm-4">
+                                    <a target="_blank" ng-href="{{posts[(posts.indexOf(post))].url}}"
+                                       class="thumbnail"><img onerror="this.style.display='none';"
+                                                              ng-src="{{posts[(posts.indexOf(post))].imgN}}"
+                                                              alt=""></a>
+                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{posts[(posts.indexOf(post))].title}}
+                                    </h5>
+                                    <h4 style="font-weight: 200">{{posts[(posts.indexOf(post))].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>
+                                        {{posts[(posts.indexOf(post))].rating}}
+                                    </h4>
+
+                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                     class="btn btn-danger"
+                                                                                                     role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a target="_blank" ng-href="{{posts[(posts.indexOf(post) + 1)].url}}"
+                                       class="thumbnail"><img onerror="this.style.display='none';"
+                                                              ng-src="{{posts[(posts.indexOf(post) + 1)].imgN}}"
+                                                              alt=""></a>
+                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{posts[(posts.indexOf(post) +
+                                        1)].title}}
+                                    </h5>
+                                    <h4 style="font-weight: 200">{{posts[(posts.indexOf(post) + 1)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i> {{posts[(posts.indexOf(post)
+                                        + 1)].rating}}
+                                    </h4>
+
+                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                     class="btn btn-danger"
+                                                                                                     role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a target="_blank" ng-href="{{posts[(posts.indexOf(post) + 2) ].url}}"
+                                       class="thumbnail"><img onerror="this.style.display='none';"
+                                                              ng-src="{{posts[(posts.indexOf(post) + 2)].imgN}}"
+                                                              alt=""></a>
+                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{posts[(posts.indexOf(post) +
+                                        2)].title}}
+                                    </h5>
+                                    <h4 style="font-weight: 200">{{posts[(posts.indexOf(post) + 2)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i> {{posts[(posts.indexOf(post)
+                                        + 2)].rating}}
+                                    </h4>
+
+                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                     class="btn btn-danger"
+                                                                                                     role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                </div>
+                            </div>
+                    </span>
+            </div>
+        </div>
+        <div ng-show="!rating">
+            <h5>Genre: {{categoryAudience}} <a href="" style="text-decoration: none"
+                                               ng-click="categoryAudience='Any'"><span style="margin-bottom: -5px;"
+                                                                                       class="glyphicon glyphicon-remove-circle"
+                                                                                       aria-hidden="true"></span></a>
+            </h5>
+            <br>
+
+            <div ng-repeat="post in posts3" style="display: inline-block;">
+                <h4><a href="" style="text-decoration: none !important;"
+                       ng-click="$parent.categoryAudience=post.Genre"><span class="label label-default"
+                                                                            style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
+                </h4>
+            </div>
+            <br>
+            <br>
+
+            <div ng-repeat="post in posts2 | filter:search | filter:customFilterAudience"
+                 class="aligned height repeated-item">
+                <span ng-switch="" on="$index % 3">
+                            <div class="row" ng-switch-when="0">
+                                <div class="col-sm-4">
+                                    <a target="_blank" ng-href="{{posts2[(posts2.indexOf(post))].url}}"
+                                       class="thumbnail"><img onerror="this.style.display='none';"
+                                                              ng-src="{{posts2[(posts2.indexOf(post))].imgN}}"
+                                                              alt=""></a>
+                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{posts2[(posts2.indexOf(post))].title}}
+                                    </h5>
+                                    <h4 style="font-weight: 200">{{posts2[(posts2.indexOf(post))].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>
+                                        {{posts2[(posts2.indexOf(post))].rating}}
+                                    </h4>
+
+                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                     class="btn btn-danger"
+                                                                                                     role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a target="_blank" ng-href="{{posts2[(posts2.indexOf(post) + 1)].url}}"
+                                       class="thumbnail"><img onerror="this.style.display='none';"
+                                                              ng-src="{{posts2[(posts2.indexOf(post) + 1)].imgN}}"
+                                                              alt=""></a>
+                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{posts2[(posts2.indexOf(post) +
+                                        1)].title}}
+                                    </h5>
+                                    <h4 style="font-weight: 200">{{posts2[(posts2.indexOf(post) + 1)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>
+                                        {{posts2[(posts2.indexOf(post)
+                                        + 1)].rating}}
+                                    </h4>
+
+                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                     class="btn btn-danger"
+                                                                                                     role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a target="_blank" ng-href="{{posts2[(posts2.indexOf(post) + 2) ].url}}"
+                                       class="thumbnail"><img onerror="this.style.display='none';"
+                                                              ng-src="{{posts2[(posts2.indexOf(post) + 2)].imgN}}"
+                                                              alt=""></a>
+                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{posts2[(posts2.indexOf(post) +
+                                        2)].title}}
+                                    </h5>
+                                    <h4 style="font-weight: 200">{{posts2[(posts2.indexOf(post) + 2)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>
+                                        {{posts2[(posts2.indexOf(post)
+                                        + 2)].rating}}
+                                    </h4>
+
+                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                                     class="btn btn-danger"
+                                                                                                     role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                </div>
+                            </div>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,90 @@
+<body id="iBody" ng-controller="mainController">
+<div class="container">
+    <br>
+
+    <div class="jumbotron jumboHeight">
+        <h1 class="aligned">
+            <i class="fa fa-film"></i> What is on Netflix?
+            <div style="margin-left: 5px !important;" class="fb-like" data-href="http://www.whatisonnetflix.com/"
+                 data-layout="box_count"
+                 data-action="like" data-show-faces="true" data-share="true"></div>
+            <a class="twitter-share-button" href="https://twitter.com/share" data-related="twitterdev" data-size="large"
+               data-count="none"></a>
+            <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fimgur.com%2FOThvsjy&media=http%3A%2F%2Fi.imgur.com%2FOThvsjy.png&description=What%20is%20on%20Netflix%3F"
+               data-pin-do="buttonPin" data-pin-config="none" data-pin-color="red" data-pin-height="28"><img
+                    src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png"/></a>
+        </h1>
+        <br>
+
+        <p class="lead aligned">Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on
+            Netflix.
+            Updated every week.</p><br>
+
+        <div class="aligned" id="test">
+            <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button1M"
+                    ng-click="link1 = !link1; link2 = false; link3 = false; link4 = false; link5 = false;"
+                    type="button"
+                    class="btn btn-primary btn-danger main-button"
+                    ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                    btn-checkbox-false="0"><h4>Rotten Tomatoes</h4></button>
+            &nbsp;
+            <button style="margin-right: -1px !important; margin-top: 4px !important;" id="button2M"
+                    ng-click="link2 = !link2; link1 = false; link3 = false; link4=false; link5 = false;"
+                    type="button"
+                    class="btn btn-primary btn-warning main-button"
+                    ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                    btn-checkbox-false="0"><h4>IMDB</h4></button>
+            <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button3M"
+                    ng-click="link3 = !link3; link2 = false; link1 = false; link4=false; link5 = false;"
+                    type="button"
+                    class="btn btn-primary btn-success main-button"
+                    ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                    btn-checkbox-false="0"><h4>Metacritic</h4></button>
+            <br><br>
+            <button style="margin-top: 4px !important;" id="button4M"
+                    ng-click="link4 = !link4; link3 = false; link2 = false; link1 = false; link5 = false;"
+                    type="button"
+                    class="btn btn-default main-button"
+                    ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                    btn-checkbox-false="0"><h4>New on Netflix</h4></button>
+
+            <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button5M"
+                    ng-click="link5 = !link5; link3 = false; link2 = false; link1 = false; link4 = false;"
+                    type="button"
+                    class="btn btn-info main-button"
+                    ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
+                    btn-checkbox-false="0"><h4>Random Pick</h4></button>
+            <br><br><br><br><br><br><br>
+
+            <div ng-include="'views/partials/mentioned.html'"></div>
+            <iframe src="https://ghbtns.com/github-btn.html?user=ltalhouarne&type=follow&count=true&size=small"
+                    frameborder="0" scrolling="0" width="200" height="30px"></iframe>
+        </div>
+    </div>
+
+    <div id="navigation" class="jumbotron" ng-show="link1 || link2 || link3 || link4 || link5">
+        <div id="metacritic" class="container aligned100 heighthv" ng-if="link3 && !link2 && !link1 && !link4 && !link5"
+             ng-include="'views/partials/mc.html'"></div>
+
+        <div id="Rotten Tomatoes" class="container aligned100 heighthv"
+             ng-if="link1 && !link2 && !link3 && !link4 && !link5" ng-include="'views/partials/rt.html'"></div>
+
+        <div id="imdb Container" class="container aligned100 heighthv"
+             ng-if="link2 && !link3 && !link1 && !link4 && !link5" ng-include="'views/partials/imdb.html'"></div>
+
+        <div id="new Releases" class="container aligned100" ng-if="link4 && !link1 && !link3 && !link2 && !link5"
+             ng-include="'views/partials/releases.html'"></div>
+
+        <div id="Random pick" class="container aligned100" ng-if="link5 && !link1 && !link3 && !link2 && !link4"
+             ng-include="'views/partials/random.html'"></div>
+    </div>
+</div>
+
+<div id="footer">
+    <i class="fa fa-university"></i> This website does not have any affiliation with IMDB, Metacritic, Netflix or
+    Rotten
+    Tomatoes.
+    <br>
+    <a href="mailto:whatisonnetflix@hotmail.com">Suggestions/Questions?</a>
+</div>
+</body>

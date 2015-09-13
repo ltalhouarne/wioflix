@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes"/>
+    <meta name="google-play-app" content="app-id=com.wionflix.Wioflix">
+    <meta name="apple-itunes-app" content="app-id=957204575">
+    <title>Wioflix?</title>
+    <meta name="description" content="Best movies available on Netflix: Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on Netflix.
+        Updated every week." >
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body ng-app="wioflixApp" style="background: url(../images/blur2.jpg) no-repeat center fixed">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+    <div ng-view=""></div>
+</div>
+
+<div id="fb-root"></div>
+<script>
+    //Google Analytics
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-53957525-1', 'auto');
+    ga('send', 'pageview');
+
+    //Facebook
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    //Twitter
+    window.twttr = (function (d, s, id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = {_e: [], ready: function (f) {
+            t._e.push(f)
+        }})
+    }(document, "script", "twitter-wjs"));
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/functionality/jquery.smartbanner.js"></script>
+<script src="scripts/functionality/main_script.js"></script>
+<!-- endbuild -->
+</body>
+</html>
