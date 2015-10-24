@@ -26,7 +26,7 @@
 <div ng-controller="ShuffleImdbController" ng-show="imdb">
     <br>
 
-    <div id="topImdb" ng-repeat="post in posts3" style="display: inline-block;">
+    <div id="topImdb" ng-repeat="post in imdbGenres" style="display: inline-block;">
         <h4><a id="imGenre{{$index}}" href="" style="text-decoration: none !important;"
                ng-click="$parent.category=post.Genre"><span class="label label-default"
                                                             style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
@@ -40,7 +40,7 @@
         Here's our pick for you:
         <br> <br>
 
-        <div id="topImdbResult" ng-repeat="post in filteredResults = (posts | filter:customFilter | limitTo: 1)">
+        <div id="topImdbResult" ng-repeat="post in filteredResults = (imdbMovies | filter:customFilter | limitTo: 1)">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <a target="_blank" ng-href="{{post.url}}"
@@ -80,7 +80,7 @@
                 <b>Any</b></a></li>
             <br>
 
-            <div ng-repeat="post in posts3">
+            <div ng-repeat="post in rtGenres">
                 <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
                 </li>
             </div>
@@ -105,7 +105,7 @@
         <br>
         <br>
 
-        <div ng-repeat="post in posts | filter:customFilter | limitTo: 1" class="aligned height" ng-show="rating">
+        <div ng-repeat="post in rtUserRatings | filter:customFilter | limitTo: 1" class="aligned height" ng-show="rating">
                         <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
                                    ng-src="{{post.imgN}}">
                         <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
@@ -121,7 +121,7 @@
                         </span>
         </div>
 
-        <div ng-repeat="post in posts2 | filter:customFilter | limitTo: 1" class="aligned height" ng-show="!rating">
+        <div ng-repeat="post in rtCriticRatings | filter:customFilter | limitTo: 1" class="aligned height" ng-show="!rating">
                         <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
                                    ng-src="{{post.imgN}}">
                         <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
@@ -153,7 +153,7 @@
                 <b>Any</b></a></li>
             <br>
 
-            <div ng-repeat="post in posts">
+            <div ng-repeat="post in mcGenres">
                 <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
                 </li>
             </div>
@@ -176,7 +176,7 @@
         <br>
         <br>
 
-        <div ng-repeat="post in posts2 | filter:customFilter | limitTo: 1" ng-show="rating">
+        <div ng-repeat="post in mcCriticRatings | filter:customFilter | limitTo: 1" ng-show="rating">
                         <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
                                    ng-src="{{post.imgN}}">
                         <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
@@ -192,7 +192,7 @@
                         </span>
         </div>
 
-        <div ng-repeat="post in posts3 | filter:customFilter | limitTo: 1" ng-show="!rating">
+        <div ng-repeat="post in mcUserRatings | filter:customFilter | limitTo: 1" ng-show="!rating">
                         <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
                                    ng-src="{{post.imgN}}">
                         <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
@@ -224,7 +224,7 @@
             </li>
             <br>
 
-            <div ng-repeat="post in posts">
+            <div ng-repeat="post in allGenres">
                 <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
                 </li>
             </div>
@@ -240,7 +240,7 @@
         <br>
         <br>
 
-        <div ng-repeat="post in filteredResults = (posts2 | filter:customFilter | limitTo: 1)" class="animated">
+        <div ng-repeat="post in filteredResults = (allMovies | filter:customFilter | limitTo: 1)" class="animated">
                         <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
                                    ng-src="{{post.imgN}}">
                             <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o" style="color: orange"></i>

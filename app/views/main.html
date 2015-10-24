@@ -22,34 +22,34 @@
 
         <div class="aligned" id="test">
             <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button1M"
-                    ng-click="link1 = !link1; link2 = false; link3 = false; link4 = false; link5 = false;"
+                    ng-click="rtClicked = !rtClicked; imdbClicked = false; mcClicked = false; newMoviesClicked = false; randomSelectionClicked = false;"
                     type="button"
                     class="btn btn-primary btn-danger main-button"
                     ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                     btn-checkbox-false="0"><h4>Rotten Tomatoes</h4></button>
             &nbsp;
             <button style="margin-right: -1px !important; margin-top: 4px !important;" id="button2M"
-                    ng-click="link2 = !link2; link1 = false; link3 = false; link4=false; link5 = false;"
+                    ng-click="imdbClicked = !imdbClicked; rtClicked = false; mcClicked = false; newMoviesClicked=false; randomSelectionClicked = false;"
                     type="button"
                     class="btn btn-primary btn-warning main-button"
                     ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                     btn-checkbox-false="0"><h4>IMDB</h4></button>
             <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button3M"
-                    ng-click="link3 = !link3; link2 = false; link1 = false; link4=false; link5 = false;"
+                    ng-click="mcClicked = !mcClicked; imdbClicked = false; rtClicked = false; newMoviesClicked=false; randomSelectionClicked = false;"
                     type="button"
                     class="btn btn-primary btn-success main-button"
                     ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                     btn-checkbox-false="0"><h4>Metacritic</h4></button>
             <br><br>
             <button style="margin-top: 4px !important;" id="button4M"
-                    ng-click="link4 = !link4; link3 = false; link2 = false; link1 = false; link5 = false;"
+                    ng-click="newMoviesClicked = !newMoviesClicked; mcClicked = false; imdbClicked = false; rtClicked = false; randomSelectionClicked = false;"
                     type="button"
                     class="btn btn-default main-button"
                     ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
                     btn-checkbox-false="0"><h4>New on Netflix</h4></button>
 
             <button style="margin-left: 5px !important; margin-top: 4px !important;" id="button5M"
-                    ng-click="link5 = !link5; link3 = false; link2 = false; link1 = false; link4 = false;"
+                    ng-click="randomSelectionClicked = !randomSelectionClicked; mcClicked = false; imdbClicked = false; rtClicked = false; newMoviesClicked = false;"
                     type="button"
                     class="btn btn-info main-button"
                     ng-model="singleModel" btn-checkbox btn-checkbox-true="1"
@@ -62,20 +62,20 @@
         </div>
     </div>
 
-    <div id="navigation" class="jumbotron" ng-show="link1 || link2 || link3 || link4 || link5">
-        <div id="metacritic" class="container aligned100 heighthv" ng-if="link3 && !link2 && !link1 && !link4 && !link5"
+    <div id="navigation" class="jumbotron" ng-show="rtClicked || imdbClicked || mcClicked || newMoviesClicked || randomSelectionClicked">
+        <div id="metacritic" class="container aligned100 heighthv" ng-if="mcClicked && !imdbClicked && !rtClicked && !newMoviesClicked && !randomSelectionClicked"
              ng-include="'views/partials/mc.html'"></div>
 
         <div id="Rotten Tomatoes" class="container aligned100 heighthv"
-             ng-if="link1 && !link2 && !link3 && !link4 && !link5" ng-include="'views/partials/rt.html'"></div>
+             ng-if="rtClicked && !imdbClicked && !mcClicked && !newMoviesClicked && !randomSelectionClicked" ng-include="'views/partials/rt.html'"></div>
 
         <div id="imdb Container" class="container aligned100 heighthv"
-             ng-if="link2 && !link3 && !link1 && !link4 && !link5" ng-include="'views/partials/imdb.html'"></div>
+             ng-if="imdbClicked && !mcClicked && !rtClicked && !newMoviesClicked && !randomSelectionClicked" ng-include="'views/partials/imdb.html'"></div>
 
-        <div id="new Releases" class="container aligned100" ng-if="link4 && !link1 && !link3 && !link2 && !link5"
+        <div id="new Releases" class="container aligned100" ng-if="newMoviesClicked && !rtClicked && !mcClicked && !imdbClicked && !randomSelectionClicked"
              ng-include="'views/partials/releases.html'"></div>
 
-        <div id="Random pick" class="container aligned100" ng-if="link5 && !link1 && !link3 && !link2 && !link4"
+        <div id="Random pick" class="container aligned100" ng-if="randomSelectionClicked && !rtClicked && !mcClicked && !imdbClicked && !newMoviesClicked"
              ng-include="'views/partials/random.html'"></div>
     </div>
 </div>
