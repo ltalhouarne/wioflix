@@ -17,3 +17,9 @@ Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 
 `grunt serve`
 
+# Want to contribute?
+
+Whatisonnetflix is released under the Apache 2.0 license. If you would like to contribute something, or simply want to hack on the code you are free to do so.
+
+Submit a Pull Request if you want to see improvements being pushed to the site :)
+
