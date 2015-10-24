@@ -160,7 +160,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
@@ -243,6 +243,8 @@ module.exports = function (grunt) {
         assetsDirs: [
           '<%= yeoman.dist %>',
           '<%= yeoman.dist %>/images',
+          '<%= yeoman.dist %>/scripts',
+          '<%= yeoman.dist %>/js',
           '<%= yeoman.dist %>/styles'
         ],
         patterns: {
@@ -362,6 +364,7 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'images/{,*/}*.{webp}',
+            'js/*.json',
             'styles/fonts/{,*/}*.*'
           ]
         }, {

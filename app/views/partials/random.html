@@ -23,8 +23,9 @@
 <span ng-show="rt || all">&nbsp;&nbsp;<img style="width:80px; height:auto; text-align: center;" src="images/rt.png">&nbsp;&nbsp;</span>
 <br>
 
-<div ng-controller="PostsCtrlShuffleImdb" ng-show="imdb">
+<div ng-controller="ShuffleImdbController" ng-show="imdb">
     <br>
+
     <div id="topImdb" ng-repeat="post in posts3" style="display: inline-block;">
         <h4><a id="imGenre{{$index}}" href="" style="text-decoration: none !important;"
                ng-click="$parent.category=post.Genre"><span class="label label-default"
@@ -58,7 +59,7 @@
                                                                                  role="button"><span
                         class="glyphicon glyphicon-facetime-video"
                         aria-hidden="true"></span> Watch it!</a></p>
-                <button ng-click="shuffle()" class="btn btn-default">New pick  <i class="fa fa-refresh"></i></button>
+                <button ng-click="shuffle()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
             </div>
             <div class="col-sm-4"></div>
         </div>
@@ -67,7 +68,7 @@
 
 </div>
 
-<div ng-controller="PostsCtrlShuffleRt" ng-show="rt">
+<div ng-controller="ShuffleRtController" ng-show="rt">
     <div class="btn-group">
         <br>
         <br>
@@ -141,7 +142,7 @@
 
 </div>
 
-<div ng-controller="PostsCtrl3ShuffleMc" ng-show="meta">
+<div ng-controller="ShuffleMcController" ng-show="meta">
     <div class="btn-group">
         <br>
         <button id="ulmeta" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -212,7 +213,7 @@
 
 </div>
 
-<div ng-controller="PostsCtrlShuffleAll" ng-show="all">
+<div ng-controller="ShuffleAllController" ng-show="all">
     <div class="btn-group">
         <br>
         <button id="ulall" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -259,10 +260,7 @@
 
 </div>
 
-
 </div>
-
-
 </div>
 <br>
 <br>

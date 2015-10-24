@@ -9,23 +9,24 @@
  * Assigns global variables
  */
 angular.module('wioflixApp')
-    .controller('PostsCtrl', function PostsCtrl($scope, $http) {
+    //IMDB
+    .controller('ImdbController', function imdbController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/imdbMovies.json?version=20'
+            url: 'js/imdbMovies.json'
         }).success(function (data) {
             $scope.posts = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategories.json?version=20'
+            url: 'js/imdbCategories.json'
         }).success(function (data) {
             $scope.posts3 = data; // response data
         });
         $http({
             method: 'GET',
-            url: 'js/imdbTV.json?version=20'
+            url: 'js/imdbTV.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
         });
@@ -46,24 +47,25 @@ angular.module('wioflixApp')
             return false;
         };
     })
-    .controller('PostsCtrl2', function PostsCtrl2($scope, $http) {
+    //Rotten Tomatoes
+    .controller('RtController', function rtController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/rtMoviesUser.json?version=20'
+            url: 'js/rtMoviesUser.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtCategories.json?version=20'
+            url: 'js/rtCategories.json'
         }).success(function (data) {
             $scope.posts3 = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesCritic.json?version=20'
+            url: 'js/rtMoviesCritic.json'
         }).success(function (data) {
             $scope.posts = data; // response data
         });
@@ -84,24 +86,25 @@ angular.module('wioflixApp')
             return false;
         };
     })
-    .controller('PostsCtrl3', function PostsCtrl3($scope, $http) {
+    //Metacritic
+    .controller('McController', function mcController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/mcCritic.json?version=20'
+            url: 'js/mcCritic.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcUser.json?version=20'
+            url: 'js/mcUser.json'
         }).success(function (data) {
             $scope.posts3 = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcGenres.json?version=20'
+            url: 'js/mcGenres.json'
         }).success(function (data) {
             $scope.posts = data; // response data
         });
@@ -123,21 +126,23 @@ angular.module('wioflixApp')
             return false;
         };
     })
-    .controller('PostsCtrl4', function PostsCtrl3($scope, $http) {
+    //New Releases - Recently Added
+    .controller('NewReleasesAndAddedController', function newReleasesAndAddedController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/newReleases.json?version=22'
+            url: 'js/newReleases.json?'
         }).success(function (data) {
             $scope.posts2 = data; // response data
         });
         $http({
             method: 'GET',
-            url: 'js/recentlyAdded.json?version=22'
+            url: 'js/recentlyAdded.json?'
         }).success(function (data) {
             $scope.posts = data; // response data
         });
         $scope.type = "none";
     })
+    //Main
     .controller('mainController', function mainController($scope) {
         $scope.link1 = false;
         $scope.link2 = false;
@@ -149,10 +154,9 @@ angular.module('wioflixApp')
         $scope.meta = false;
         $scope.all = false;
         $scope.view = true;
-
     })
-
-    .controller('PostsCtrlShuffleAll', function PostsCtrl3($scope, $http) {
+    //Shuffle All
+    .controller('ShuffleAllController', function shuffleAllController($scope, $http) {
         var shuffleArray = function (array) {
             var m = array.length, t, i;
 
@@ -176,14 +180,14 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/allCats.json?version=20'
+            url: 'js/allCats.json'
         }).success(function (data) {
             $scope.posts = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/allM.json?version=20'
+            url: 'js/allM.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
             shuffleArray($scope.posts2);
@@ -199,7 +203,8 @@ angular.module('wioflixApp')
             return false;
         };
     })
-    .controller('PostsCtrlShuffleImdb', function PostsCtrl($scope, $http) {
+    //Shuffle IMDB
+    .controller('ShuffleImdbController', function shuffleImdbController($scope, $http) {
         var shuffleArray = function (array) {
             var m = array.length, t, i;
 
@@ -222,7 +227,7 @@ angular.module('wioflixApp')
         }
         $http({
             method: 'GET',
-            url: 'js/imdbMovies.json?version=20'
+            url: 'js/imdbMovies.json'
         }).success(function (data) {
             $scope.posts = data; // response data
             shuffleArray($scope.posts);
@@ -230,13 +235,13 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategories.json?version=20'
+            url: 'js/imdbCategories.json'
         }).success(function (data) {
             $scope.posts3 = data; // response data
         });
         $http({
             method: 'GET',
-            url: 'js/imdbTV.json?version=20'
+            url: 'js/imdbTV.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
             shuffleArray($scope.posts);
@@ -253,7 +258,8 @@ angular.module('wioflixApp')
         };
 
     })
-    .controller('PostsCtrlShuffleRt', function PostsCtrl2($scope, $http) {
+    //Shuffle RT
+    .controller('ShuffleRtController', function shuffleRtController($scope, $http) {
         var shuffleArray = function (array) {
             var m = array.length, t, i;
 
@@ -277,7 +283,7 @@ angular.module('wioflixApp')
         }
         $http({
             method: 'GET',
-            url: 'js/rtMoviesUser.json?version=20'
+            url: 'js/rtMoviesUser.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
             shuffleArray($scope.posts2);
@@ -285,14 +291,14 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/rtCategories.json?version=20'
+            url: 'js/rtCategories.json'
         }).success(function (data) {
             $scope.posts3 = data; // response data
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesCritic.json?version=20'
+            url: 'js/rtMoviesCritic.json'
         }).success(function (data) {
             $scope.posts = data; // response data
             shuffleArray($scope.posts);
@@ -310,7 +316,8 @@ angular.module('wioflixApp')
             return false;
         };
     })
-    .controller('PostsCtrl3ShuffleMc', function PostsCtrl3($scope, $http) {
+    //Shuffle MC
+    .controller('ShuffleMcController', function shuffleMcController($scope, $http) {
         var shuffleArray = function (array) {
             var m = array.length, t, i;
 
@@ -334,7 +341,7 @@ angular.module('wioflixApp')
         }
         $http({
             method: 'GET',
-            url: 'js/mcCritic.json?version=20'
+            url: 'js/mcCritic.json'
         }).success(function (data) {
             $scope.posts2 = data; // response data
             shuffleArray($scope.posts2);
@@ -342,7 +349,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcUser.json?version=20'
+            url: 'js/mcUser.json'
         }).success(function (data) {
             $scope.posts3 = data; // response data
             shuffleArray($scope.posts3);
@@ -350,7 +357,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcGenres.json?version=20'
+            url: 'js/mcGenres.json'
         }).success(function (data) {
             $scope.posts = data; // response data
 
