@@ -7,15 +7,15 @@
         <div ng-repeat="post in posts" ng-show="type == true">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+0)].url}}"
+                                <div class="col-sm-4" ng-if="posts[$index].url"><a target="_blank" ng-href="{{posts[$index].url}}"
                                                          class="thumbnail"><img onerror="this.style.display='none';"
                                                                                 ng-src="{{posts[($index+0)].img}}"
                                                                                 alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+1)].url}}"
+                                <div class="col-sm-4" ng-if="posts[$index + 1].url"><a target="_blank" ng-href="{{posts[($index + 1)].url}}"
                                                          class="thumbnail"><img onerror="this.style.display='none';"
                                                                                 ng-src="{{posts[($index+1)].img}}"
                                                                                 alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+2)].url}}"
+                                <div class="col-sm-4" ng-if="posts[$index + 2].url"><a target="_blank" ng-href="{{posts[($index + 2)].url}}"
                                                          class="thumbnail"><img onerror="this.style.display='none';"
                                                                                 ng-src="{{posts[($index+2)].img}}"
                                                                                 alt=""></a></div>
@@ -26,15 +26,15 @@
         <div ng-repeat="post in posts2" ng-show="type == false">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+0)].url}}"
+                                <div class="col-sm-4" ng-if="posts2[$index].url"><a target="_blank" ng-href="{{posts2[$index].url}}"
                                                          class="thumbnail"><img onerror="this.style.display='none';"
                                                                                 ng-src="{{posts2[($index+0)].img}}"
                                                                                 alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+1)].url}}"
+                                <div class="col-sm-4" ng-if="posts2[($index + 1)].url"><a target="_blank" ng-href="{{posts2[($index + 1)].url}}"
                                                          class="thumbnail"><img onerror="this.style.display='none';"
                                                                                 ng-src="{{posts2[($index+1)].img}}"
                                                                                 alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+2)].url}}"
+                                <div class="col-sm-4" ng-if="posts2[($index + 2)].url"><a target="_blank" ng-href="{{posts2[($index + 2)].url}}"
                                                          class="thumbnail"><img onerror="this.style.display='none';"
                                                                                 ng-src="{{posts2[($index+2)].img}}"
                                                                                 alt=""></a></div>

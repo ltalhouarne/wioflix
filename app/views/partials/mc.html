@@ -13,7 +13,7 @@
                     </button>
                     <a class="navbar-brand" href="#">
                         <img style="width:35px; height:auto; text-align: center; margin-top:-7px;"
-                             src="../../images/met.jpeg">
+                             src="images/met.jpeg">
                     </a>
                 </div>
                 <div id="navbar3" class="navbar-collapse collapse">
@@ -60,7 +60,7 @@
                      class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4">
+                                <div class="col-sm-4" ng-if="posts[(posts.indexOf(post))].url">
                                     <a target="_blank" ng-href="{{posts2[(posts2.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{posts2[(posts2.indexOf(post))].imgN}}"
@@ -78,7 +78,7 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4" ng-if="posts[(posts.indexOf(post) + 1)].url">
                                     <a target="_blank" ng-href="{{posts2[(posts2.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{posts2[(posts2.indexOf(post) + 1)].imgN}}"
@@ -98,7 +98,7 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-4" ng-if="posts[(posts.indexOf(post) + 2)].url">
                                     <a target="_blank" ng-href="{{posts2[(posts2.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{posts2[(posts2.indexOf(post) + 2)].imgN}}"
