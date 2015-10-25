@@ -27,9 +27,12 @@
                         class="fa fa-star-o" style="color: orange"></i>
                     {{post.rating}}{{post.userScore}}{{post.metaScore}}{{post.userRating}}
                 </h4>
-                <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                 class="btn btn-danger"
-                                                                                 role="button"><span
+                <p><a target="_blank"
+                      href="{{post.url}}"
+                      class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                        href="{{post.urlN}}"
+                                                                        class="btn btn-danger"
+                                                                        role="button"><span
                         class="glyphicon glyphicon-facetime-video"
                         aria-hidden="true"></span> Watch it!</a></p>
                 <button ng-click="shuffle()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
