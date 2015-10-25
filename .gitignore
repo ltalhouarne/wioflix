@@ -6,6 +6,8 @@ bower_components/
 
 .tmp/
 
+app/js
+
 .idea
 
 # OS generated files #
