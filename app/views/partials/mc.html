@@ -1,203 +1,203 @@
 <div ng-controller="McController">
-<div class="navbar-outer"
-     style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+    <div class="navbar-outer"
+         style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
 
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img style="width:35px; height:auto; text-align: center; margin-top:-7px;"
-                         src="images/met.png">
-                </a>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img style="width:35px; height:auto; text-align: center; margin-top:-7px;"
+                             src="images/met.png">
+                    </a>
+                </div>
+                <div id="navbar3" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control smallW" ng-model="query"
+                                   placeholder="Search title or year...">
+                        </div>
+                    </form>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
+                            <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                    </ul>
+                </div>
             </div>
-            <div id="navbar3" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control smallW" ng-model="query"
-                               placeholder="Search title or year...">
-                    </div>
-                </form>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
-                        <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-<div class="list-group">
-        <div ng-show="rating">
-            <h5>Genre: {{categoryCritic}} <a href="" style="text-decoration: none"
-                                             ng-click="categoryCritic='Any'"><span
-                    style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
-                    aria-hidden="true"></span></a></h5>
-            <br>
-
-            <div ng-repeat="post in genresCritic" style="display: inline-block;">
-                <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryCritic=post.Genre">{{post.Genre}}</button>&nbsp;
-            </div>
-            <br>
-            <br>
-
-            <div ng-repeat="post in filteredPostsCritic = (critic | filter:search | filter:customFilterCritic)"
-                 class="aligned height repeated-item">
-                <span ng-switch="" on="$index % 3">
-                            <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url">
-                                    <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url}}"
-                                       class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].imgN}}"
-                                                              alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].title}}
-                                    </h5>
-                                    <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>
-                                        {{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].userScore}}{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].metaScore}}
-                                    </h4>
-
-                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                                     class="btn btn-danger"
-                                                                                                     role="button"><span
-                                            class="glyphicon glyphicon-facetime-video"
-                                            aria-hidden="true"></span> Watch it!</a></p>
-                                </div>
-                                <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url">
-                                    <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url}}"
-                                       class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].imgN}}"
-                                                              alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
-                                        1)].title}}
-                                    </h5>
-                                    <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>
-                                        {{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].userScore}}{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
-                                        1)].metaScore}}
-                                    </h4>
-
-                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                                     class="btn btn-danger"
-                                                                                                     role="button"><span
-                                            class="glyphicon glyphicon-facetime-video"
-                                            aria-hidden="true"></span> Watch it!</a></p>
-                                </div>
-                                <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].url">
-                                    <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2) ].url}}"
-                                       class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].imgN}}"
-                                                              alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
-                                        2)].title}}
-                                    </h5>
-                                    <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>
-                                        {{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].userScore}}{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
-                                        2)].metaScore}}
-                                    </h4>
-
-                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                                     class="btn btn-danger"
-                                                                                                     role="button"><span
-                                            class="glyphicon glyphicon-facetime-video"
-                                            aria-hidden="true"></span> Watch it!</a></p>
-                                </div>
-                            </div>
-                 </span>
-            </div>
-        </div>
-        <div ng-show="!rating">
-
-            <h5>Genre: {{categoryUser}} <a href="" style="text-decoration: none"
-                                           ng-click="categoryUser='Any'"><span style="margin-bottom: -5px;"
-                                                                               class="glyphicon glyphicon-remove-circle"
-                                                                               aria-hidden="true"></span></a>
-            </h5>
-            <br>
-
-            <div ng-repeat="post in genresUser" style="display: inline-block;">
-                <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryUser=post.Genre">{{post.Genre}}</button>&nbsp;
-            </div>
-            <br>
-            <br>
-
-            <div ng-repeat="post in filteredPostsUsers = (userVotes | filter:search | filter:customFilterUser)"
-                 class="aligned height repeated-item">
-                <span ng-switch="" on="$index % 3">
-                            <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url">
-                                    <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url}}"
-                                       class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].imgN}}"
-                                                              alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].title}}
-                                    </h5>
-                                    <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>
-                                        {{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].userScore}}{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].metaScore}}
-                                    </h4>
-
-                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                                     class="btn btn-danger"
-                                                                                                     role="button"><span
-                                            class="glyphicon glyphicon-facetime-video"
-                                            aria-hidden="true"></span> Watch it!</a></p>
-                                </div>
-                                <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url">
-                                    <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url}}"
-                                       class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].imgN}}"
-                                                              alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
-                                        1)].title}}
-                                    </h5>
-                                    <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>
-                                        {{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].userScore}}{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
-                                        1)].metaScore}}
-                                    </h4>
-
-                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                                     class="btn btn-danger"
-                                                                                                     role="button"><span
-                                            class="glyphicon glyphicon-facetime-video"
-                                            aria-hidden="true"></span> Watch it!</a></p>
-                                </div>
-                                <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].url">
-                                    <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2) ].url}}"
-                                       class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].imgN}}"
-                                                              alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
-                                        2)].title}}
-                                    </h5>
-                                    <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>
-                                        {{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].userScore}}{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
-                                        2)].metaScore}}
-                                    </h4>
-
-                                    <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
-                                                                                                     class="btn btn-danger"
-                                                                                                     role="button"><span
-                                            class="glyphicon glyphicon-facetime-video"
-                                            aria-hidden="true"></span> Watch it!</a></p>
-                                </div>
-                            </div>
-                    </span>
-        </div>
+        </nav>
     </div>
-</div>
+    <div class="list-group">
+            <div ng-show="rating">
+                <h5>Genre: {{categoryCritic}} <a href="" style="text-decoration: none"
+                                                 ng-click="categoryCritic='Any'"><span
+                        style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
+                        aria-hidden="true"></span></a></h5>
+                <br>
+
+                <div ng-repeat="post in genresCritic" style="display: inline-block;">
+                    <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryCritic=post.Genre">{{post.Genre}}</button>&nbsp;
+                </div>
+                <br>
+                <br>
+
+                <div ng-repeat="post in filteredPostsCritic = (critic | filter:search | filter:customFilterCritic)"
+                     class="aligned height repeated-item">
+                    <span ng-switch="" on="$index % 3">
+                                <div class="row" ng-switch-when="0">
+                                    <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url">
+                                        <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].userScore}}{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].metaScore}}
+                                        </h4>
+
+                                        <p><a target="_blank" href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url}}" class="btn btn-primary" role="button">Info</a> <a target="_blank" href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].urlN}}"
+                                                                                                                                                                                        class="btn btn-danger"
+                                                                                                                                                                                        role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url">
+                                        <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
+                                            1)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].userScore}}{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
+                                            1)].metaScore}}
+                                        </h4>
+
+                                        p><a target="_blank" href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url}}" class="btn btn-primary" role="button">Info</a> <a target="_blank" href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].urlN}}"
+                                                                                                                                                                                       class="btn btn-danger"
+                                                                                                                                                                                       role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].url">
+                                        <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2) ].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
+                                            2)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].userScore}}{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
+                                            2)].metaScore}}
+                                        </h4>
+
+                                        p><a target="_blank" href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].url}}" class="btn btn-primary" role="button">Info</a> <a target="_blank" href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].urlN}}"
+                                                                                                                                                                                       class="btn btn-danger"
+                                                                                                                                                                                       role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                </div>
+                     </span>
+                </div>
+            </div>
+            <div ng-show="!rating">
+
+                <h5>Genre: {{categoryUser}} <a href="" style="text-decoration: none"
+                                               ng-click="categoryUser='Any'"><span style="margin-bottom: -5px;"
+                                                                                   class="glyphicon glyphicon-remove-circle"
+                                                                                   aria-hidden="true"></span></a>
+                </h5>
+                <br>
+
+                <div ng-repeat="post in genresUser" style="display: inline-block;">
+                    <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryUser=post.Genre">{{post.Genre}}</button>&nbsp;
+                </div>
+                <br>
+                <br>
+
+                <div ng-repeat="post in filteredPostsUsers = (userVotes | filter:search | filter:customFilterUser)"
+                     class="aligned height repeated-item">
+                    <span ng-switch="" on="$index % 3">
+                                <div class="row" ng-switch-when="0">
+                                    <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url">
+                                        <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].userScore}}{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].metaScore}}
+                                        </h4>
+
+                                        <p><a target="_blank" href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url}}" class="btn btn-primary" role="button">Info</a> <a target="_blank" href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].urlN}}"
+                                                                                                                                                                                       class="btn btn-danger"
+                                                                                                                                                                                       role="button"><span
+                                            class="glyphicon glyphicon-facetime-video"
+                                            aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url">
+                                        <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
+                                            1)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].userScore}}{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
+                                            1)].metaScore}}
+                                        </h4>
+
+                                        <p><a target="_blank" href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url}}" class="btn btn-primary" role="button">Info</a> <a target="_blank" href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].urlN}}"
+                                                                                                                                                                                      class="btn btn-danger"
+                                                                                                                                                                                      role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].url">
+                                        <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2) ].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
+                                            2)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].userScore}}{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
+                                            2)].metaScore}}
+                                        </h4>
+
+                                        <p><a target="_blank" href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].url}}" class="btn btn-primary" role="button">Info</a> <a target="_blank" href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].urlN}}"
+                                                                                                                                                                                      class="btn btn-danger"
+                                                                                                                                                                                      role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                </div>
+                    </span>
+                </div>
+            </div>
+    </div>
 </div>
