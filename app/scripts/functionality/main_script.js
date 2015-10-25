@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
     $("#button1M").click(function(){
         $('html, body').animate({ scrollTop: $('#navigation').offset().top });
     });
