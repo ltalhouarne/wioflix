@@ -1,6 +1,7 @@
 <div ng-controller="McController">
 <div class="navbar-outer"
      style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -38,7 +39,6 @@
     </nav>
 </div>
 <div class="list-group">
-    <div class="alignedDi">
         <div ng-show="rating">
             <h5>Genre: {{categoryCritic}} <a href="" style="text-decoration: none"
                                              ng-click="categoryCritic='Any'"><span
@@ -119,6 +119,7 @@
             </div>
         </div>
         <div ng-show="!rating">
+
             <h5>Genre: {{categoryUser}} <a href="" style="text-decoration: none"
                                            ng-click="categoryUser='Any'"><span style="margin-bottom: -5px;"
                                                                                class="glyphicon glyphicon-remove-circle"
@@ -196,7 +197,6 @@
                                 </div>
                             </div>
                     </span>
-            </div>
         </div>
     </div>
 </div>

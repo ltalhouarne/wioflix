@@ -1,6 +1,7 @@
 <div ng-controller="RtController"><br>
 <div class="navbar-outer"
      style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -36,13 +37,13 @@
     </nav>
 </div>
 <div class="list-group">
-    <div class="alignedDi">
         <div ng-show="rating">
             <h5>Genre: {{categoryTomatometer}} <a href="" style="text-decoration: none"
                                                   ng-click="categoryTomatometer='Any'"><span
                     style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
                     aria-hidden="true"></span></a></h5>
             <br>
+
             <div ng-repeat="post in genresCritic" style="display: inline-block;">
                 <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryTomatometer=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
@@ -191,7 +192,6 @@
                                 </div>
                             </div>
                     </span>
-            </div>
         </div>
     </div>
 </div>

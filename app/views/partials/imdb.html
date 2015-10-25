@@ -17,8 +17,6 @@
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control smallW" ng-model="query"
@@ -57,7 +55,6 @@
              class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-
                                 <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url">
                                     <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
@@ -192,7 +189,7 @@
                                 </div>
                             </div>
                     </span>
+            </div>
         </div>
-    </div>
 </div>
 </div>
