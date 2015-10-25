@@ -17,10 +17,11 @@
 <div ng-show="imdb || rt || meta || all">
 <br>
     <span ng-show="imdb || all">&nbsp;&nbsp;<img style="width:100px; height:auto; text-align: center;"
-                                                 src="../../images/imdb.png">&nbsp;&nbsp;</span>
-    <span ng-show="meta || all">&nbsp;&nbsp;<img style="width:50px; height:auto; text-align: center;"
-                                                 src="../../images/met.jpeg">&nbsp;&nbsp;</span>
-    <span ng-show="rt || all">&nbsp;&nbsp;<img style="width:80px; height:auto; text-align: center;" src="../../images/rt.png">&nbsp;&nbsp;</span>
+                                                 src="images/imdb.png">&nbsp;&nbsp;</span>
+    <span ng-show="meta || all">&nbsp;&nbsp;<img style="width:80px; height:auto; text-align: center;"
+                                                 src="images/met.png">&nbsp;&nbsp;</span>
+    <span ng-show="rt || all">&nbsp;&nbsp;<img style="width:100px; height:auto; text-align: center;"
+                                                 src="images/rt.png">&nbsp;&nbsp;</span>
 <br>
 
 <div id="randomImdb" ng-if="imdb" ng-include="'views/partials/random/random-imdb.html'"></div>

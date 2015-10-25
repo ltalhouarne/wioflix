@@ -38,15 +38,11 @@ angular.module('wioflixApp')
         $scope.categoryShows = "Any";
 
         $scope.customFilterMovies = function (data) {
-            if ($scope.categoryMovies === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryMovies) > -1) return true;
-            return false;
+            return $scope.categoryMovies === "Any" || data.genres.toString().indexOf($scope.categoryMovies) > -1;
         };
 
         $scope.customFilterShows = function (data) {
-            if ($scope.categoryShows === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryShows) > -1) return true;
-            return false;
+            return $scope.categoryShows === "Any" || data.genres.toString().indexOf($scope.categoryShows) > -1;
         };
     })
     //Rotten Tomatoes
@@ -77,15 +73,11 @@ angular.module('wioflixApp')
         $scope.rating = true;
 
         $scope.customFilterTomatometer = function (data) {
-            if ($scope.categoryTomatometer === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryTomatometer) > -1) return true;
-            return false;
+            return $scope.categoryTomatometer === "Any" || data.genres.toString().indexOf($scope.categoryTomatometer) > -1;
         };
 
         $scope.customFilterAudience = function (data) {
-            if ($scope.categoryAudience === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryAudience) > -1) return true;
-            return false;
+            return $scope.categoryAudience === "Any" || data.genres.toString().indexOf($scope.categoryAudience) > -1;
         };
     })
     //Metacritic
@@ -119,17 +111,13 @@ angular.module('wioflixApp')
         //If Any return all
         //Otherwise return movies with matching category
         $scope.customFilterCritic = function (data) {
-            if ($scope.categoryCritic === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryCritic) > -1) return true;
-            return false;
+            return $scope.categoryCritic === "Any" || data.genres.toString().indexOf($scope.categoryCritic) > -1;
         };
 
         //If Any return all
         //Otherwise return movies with matching category
         $scope.customFilterUser = function (data) {
-            if ($scope.categoryUser === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryUser) > -1) return true;
-            return false;
+            return $scope.categoryUser === "Any" || data.genres.toString().indexOf($scope.categoryUser) > -1;
         };
     })
     //New Releases - Recently Added
@@ -149,7 +137,7 @@ angular.module('wioflixApp')
         $scope.type = "none";
     })
     //Main
-    .controller('mainController', function mainController($scope) {
+    .controller('MainController', function mainController($scope) {
         //All booleans tracking the context chosen by a user.
         $scope.rtClicked = false;
         $scope.imdbClicked = false;
@@ -181,7 +169,7 @@ angular.module('wioflixApp')
             }
 
             return array;
-        }
+        };
 
         return shuffleService;
     })
@@ -189,7 +177,7 @@ angular.module('wioflixApp')
     .controller('ShuffleAllController', function shuffleAllController($scope, $http, shuffleService) {
         $scope.shuffle = function () {
             shuffleService.shuffleArray($scope.allMovies);
-        }
+        };
 
         $http({
             method: 'GET',
@@ -211,16 +199,14 @@ angular.module('wioflixApp')
         $scope.showAll = false;
 
         $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
     })
     //Shuffle IMDB
     .controller('ShuffleImdbController', function shuffleImdbController($scope, $http, shuffleService) {
         $scope.shuffle = function () {
             shuffleService.shuffleArray($scope.imdbMovies);
-        }
+        };
         $http({
             method: 'GET',
             url: 'js/imdbMovies.json'
@@ -241,17 +227,19 @@ angular.module('wioflixApp')
         $scope.showImdb = false;
 
         $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
     })
     //Shuffle RT
     .controller('ShuffleRtController', function shuffleRtController($scope, $http, shuffleService) {
-        $scope.shuffle = function () {
+        $scope.shuffleUserRatings = function () {
             shuffleService.shuffleArray($scope.rtUserRatings);
+        };
+
+        $scope.shuffleCriticRatings = function () {
             shuffleService.shuffleArray($scope.rtCriticRatings);
-        }
+        };
+
         $http({
             method: 'GET',
             url: 'js/rtMoviesUser.json'
@@ -281,17 +269,19 @@ angular.module('wioflixApp')
         $scope.showRT = false;
 
         $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
     })
     //Shuffle MC
     .controller('ShuffleMcController', function shuffleMcController($scope, $http, shuffleService) {
-        $scope.shuffle = function () {
+        $scope.shuffleCritic = function () {
             shuffleService.shuffleArray($scope.mcCriticRatings);
+        };
+
+        $scope.shuffleUserRatings = function () {
             shuffleService.shuffleArray($scope.mcUserRatings);
-        }
+        };
+
         $http({
             method: 'GET',
             url: 'js/mcCritic.json'
@@ -323,8 +313,6 @@ angular.module('wioflixApp')
 
 
         $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
     });

@@ -2,7 +2,7 @@
     <br>
 
     <div id="topImdb" ng-repeat="post in imdbGenres" style="display: inline-block;">
-        <button type="radio" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
+        <button type="radio" style="margin-bottom: 5px;" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
     </div>
     <div ng-show="showImdb || category!='Any'">
         <br>
@@ -12,7 +12,7 @@
         Here's our pick for you:
         <br> <br>
 
-        <div id="topImdbResult" ng-repeat="post in filteredResults = (imdbMovies | filter:customFilter | limitTo: 1)">
+        <div ng-repeat="post in filteredResults = (imdbMovies | filter:customFilter | limitTo: 1)">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <a target="_blank" ng-href="{{post.url}}"

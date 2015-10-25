@@ -1,7 +1,7 @@
 <div ng-controller="ShuffleMcController">
     <br>
     <div id="topMc" ng-repeat="post in mcGenres" style="display: inline-block;">
-        <button type="radio" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
+        <button type="radio" style="margin-bottom: 5px;" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
     </div>
     <div ng-show="rat || category!='Any'">
         <br>
@@ -13,43 +13,58 @@
         </div>
     </div>
 
-    <div ng-show="(showMeta || category!='Any') && rating !='null'">
+    <div ng-show="(showMeta || category!='Any') && rating">
         Here's our pick for you:
         <br> <br>
-
-        <div ng-repeat="post in mcCriticRatings | filter:customFilter | limitTo: 1" ng-show="rating">
-                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
-                                   ng-src="{{post.imgN}}">
-                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
-                                                                style="color: orange"></i>
-                            {{post.userScore}}{{post.metaScore}}</h4>
-                        <a ng-href="{{post.url}}" target="_blank">
-                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
-                            </button>
-                        </a><a ng-href="{{post.urlN}}" target="_blank">
-                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
-                                </button>
-                            </a>
-                        </span>
+        <div ng-repeat="post in filteredResults = (mcCriticRatings | filter:customFilter | limitTo: 1)">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a target="_blank" ng-href="{{post.url}}"
+                   class="thumbnail"><img onerror="this.style.display='none';"
+                                          ng-src="{{post.imgN}}"
+                                          alt=""></a>
+                <h5 style="font-weight: 400">{{post.title}}
+                </h5>
+                <h4 style="font-weight: 200">{{post.year}} - <i
+                        class="fa fa-star-o" style="color: orange"></i>
+                    {{post.userScore}}{{post.metaScore}}
+                </h4>
+                <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                 class="btn btn-danger"
+                                                                                 role="button"><span
+                        class="glyphicon glyphicon-facetime-video"
+                        aria-hidden="true"></span> Watch it!</a></p>
+                <button ng-click="shuffleCritic()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="col-sm-4"></div>
         </div>
+    </div>
+    <div ng-show="(showMeta || category!='Any') && !rating">
+        Here's our pick for you:
+        <br> <br>
+        <div ng-repeat="post in filteredResults = (mcUserRatings | filter:customFilter | limitTo: 1)">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a target="_blank" ng-href="{{post.url}}"
+                   class="thumbnail"><img onerror="this.style.display='none';"
+                                          ng-src="{{post.imgN}}"
+                                          alt=""></a>
+                <h5 style="font-weight: 400">{{post.title}}
+                </h5>
+                <h4 style="font-weight: 200">{{post.year}} - <i
+                        class="fa fa-star-o" style="color: orange"></i>
+                    {{post.userScore}}{{post.metaScore}}
+                </h4>
 
-        <div ng-repeat="post in mcUserRatings | filter:customFilter | limitTo: 1" ng-show="!rating">
-                        <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"
-                                   ng-src="{{post.imgN}}">
-                        <h4>{{post.title}} - {{post.year}} - <i class="fa fa-star-o"
-                                                                style="color: orange"></i>
-                            {{post.userScore}}{{post.metaScore}}</h4>
-                        <a ng-href="{{post.url}}" target="_blank">
-                            <button class="btn btn-default btn-circle">&nbsp;<i class="fa fa-info fa-2">&nbsp; </i>
-                            </button>
-                        </a><a ng-href="{{post.urlN}}" target="_blank">
-                                <button class="btn btn-default btn-circle"><i class="fa fa-play-circle fa-2"></i>
-                                </button>
-                            </a>
-                        </span>
+                <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                 class="btn btn-danger"
+                                                                                 role="button"><span
+                        class="glyphicon glyphicon-facetime-video"
+                        aria-hidden="true"></span> Watch it!</a></p>
+                <button ng-click="shuffleCritic()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="col-sm-4"></div>
         </div>
         <br>
-        <button ng-click="shuffle()" class="btn btn-default"><i class="fa fa-refresh"></i></button>
     </div>
-
 </div>
