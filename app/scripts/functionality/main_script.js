@@ -35,7 +35,4 @@ $( document ).ready(function() {
     $("#topRandom").click(function(){
         $('html, body').animate({ scrollTop: $('#topImdb').offset().top });
     });
-    $("[id^=imGenre]").click(function(){
-        $('html, body').animate({ scrollTop: $('#topImdbResult').offset().top });
-    });
 });

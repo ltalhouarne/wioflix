@@ -1,26 +1,12 @@
-<div ng-controller="ShuffleMcController" ng-show="meta">
-    <div class="btn-group">
-        <br>
-        <button id="ulmeta" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Genre <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" style="text-align: center;">
-            <li><a class="toClick" href="" role="button" ng-click="category='Any'; showMeta=true; rat=true;">
-                <b>Any</b></a></li>
-            <br>
-
-            <div ng-repeat="post in mcGenres">
-                <li><a href="" ng-click="$parent.category=post.Genre; open(); shuffle()"> &nbsp;{{post.Genre}}</a>
-                </li>
-            </div>
-        </ul>
+<div ng-controller="ShuffleMcController">
+    <br>
+    <div id="topMc" ng-repeat="post in mcGenres" style="display: inline-block;">
+        <button type="radio" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
     </div>
-
     <div ng-show="rat || category!='Any'">
         <br>
-        <h5>{{category}}</h5>
+        <h5>Genre: {{category}}</h5>
         <br>
-
         <div class="form-group">
             <button type="radio" class="btn btn-default" ng-click="rating=true">Metascore</button>
             <button type="radio" class="btn btn-default" ng-click="rating=false">User score</button>
@@ -29,8 +15,7 @@
 
     <div ng-show="(showMeta || category!='Any') && rating !='null'">
         Here's our pick for you:
-        <br>
-        <br>
+        <br> <br>
 
         <div ng-repeat="post in mcCriticRatings | filter:customFilter | limitTo: 1" ng-show="rating">
                         <span><img onerror="this.style.display='none';" style="width:100px; height:116px;"

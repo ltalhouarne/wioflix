@@ -37,7 +37,6 @@
         </div>
     </nav>
 </div>
-
 <div class="list-group">
     <div class="alignedDi">
         <div ng-show="rating">
@@ -48,10 +47,7 @@
             <br>
 
             <div ng-repeat="post in genres" style="display: inline-block;">
-                <h4><a href="" style="text-decoration: none !important;"
-                       ng-click="$parent.categoryCritic=post.Genre"><span class="label label-default"
-                                                                          style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-                </h4>
+                <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryCritic=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
             <br>
             <br>
@@ -131,10 +127,7 @@
             <br>
 
             <div ng-repeat="post in genres" style="display: inline-block;">
-                <h4><a href="" style="text-decoration: none !important;"
-                       ng-click="$parent.categoryUser=post.Genre"><span class="label label-default"
-                                                                        style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-                </h4>
+                <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryUser=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
             <br>
             <br>

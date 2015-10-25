@@ -2,10 +2,7 @@
     <br>
 
     <div id="topImdb" ng-repeat="post in imdbGenres" style="display: inline-block;">
-        <h4><a id="imGenre{{$index}}" href="" style="text-decoration: none !important;"
-               ng-click="$parent.category=post.Genre"><span class="label label-default"
-                                                            style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-        </h4>
+        <button type="radio" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
     </div>
     <div ng-show="showImdb || category!='Any'">
         <br>

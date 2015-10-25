@@ -1,5 +1,4 @@
 <div ng-controller="RtController"><br>
-
 <div class="navbar-outer"
      style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
     <nav class="navbar navbar-default" role="navigation">
@@ -44,12 +43,8 @@
                     style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
                     aria-hidden="true"></span></a></h5>
             <br>
-
             <div ng-repeat="post in genres" style="display: inline-block;">
-                <h4><a href="" style="text-decoration: none !important;"
-                       ng-click="$parent.categoryTomatometer=post.Genre"><span class="label label-default"
-                                                                               style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-                </h4>
+                <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryTomatometer=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
             <br>
             <br>
@@ -127,10 +122,7 @@
             <br>
 
             <div ng-repeat="post in genres" style="display: inline-block;">
-                <h4><a href="" style="text-decoration: none !important;"
-                       ng-click="$parent.categoryAudience=post.Genre"><span class="label label-default"
-                                                                            style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-                </h4>
+                <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryAudience=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
             <br>
             <br>

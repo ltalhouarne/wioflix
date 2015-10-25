@@ -327,5 +327,4 @@ angular.module('wioflixApp')
             if (data.genres.toString().indexOf($scope.category) > -1) return true;
             return false;
         };
-    })
-
+    });

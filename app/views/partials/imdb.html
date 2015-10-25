@@ -40,7 +40,6 @@
     </nav>
 </div>
 <div class="list-group">
-
     <div ng-show="type">
         <h5>Genre: {{categoryMovies}} <a href="" style="text-decoration: none"
                                          ng-click="categoryMovies='Any'"><span
@@ -49,10 +48,7 @@
         <br>
 
         <div ng-repeat="post in genres" style="display: inline-block;">
-            <h4><a href="" style="text-decoration: none !important;"
-                   ng-click="$parent.categoryMovies=post.Genre"><span class="label label-default"
-                                                                      style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-            </h4>
+            <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryMovies=post.Genre">{{post.Genre}}</button>&nbsp;
         </div>
         <br>
         <br>
@@ -128,16 +124,11 @@
                                                                              aria-hidden="true"></span></a>
         </h5>
         <br>
-
         <div ng-repeat="post in genres" style="display: inline-block;">
-            <h4><a href="" style="text-decoration: none !important;"
-                   ng-click="$parent.categoryShows=post.Genre"><span class="label label-default"
-                                                                     style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
-            </h4>
+            <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryShows=post.Genre">{{post.Genre}}</button>&nbsp;
         </div>
         <br>
         <br>
-
         <div ng-repeat="post in shows | filter:search | filter:customFilterShows"
              class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
