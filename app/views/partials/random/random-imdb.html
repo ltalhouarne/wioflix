@@ -1,0 +1,44 @@
+<div ng-controller="ShuffleImdbController">
+    <br>
+
+    <div id="topImdb" ng-repeat="post in imdbGenres" style="display: inline-block;">
+        <h4><a id="imGenre{{$index}}" href="" style="text-decoration: none !important;"
+               ng-click="$parent.category=post.Genre"><span class="label label-default"
+                                                            style="margin-right: 5px !important; margin-top:5px !important;">{{post.Genre}}</span></a>
+        </h4>
+    </div>
+    <div ng-show="showImdb || category!='Any'">
+        <br>
+        <h5>Genre: {{category}} </h5>
+        <br>
+        <br>
+        Here's our pick for you:
+        <br> <br>
+
+        <div id="topImdbResult" ng-repeat="post in filteredResults = (imdbMovies | filter:customFilter | limitTo: 1)">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a target="_blank" ng-href="{{post.url}}"
+                   class="thumbnail"><img onerror="this.style.display='none';"
+                                          ng-src="{{post.imgN}}"
+                                          alt=""></a>
+                <h5 style="font-weight: 400">{{post.title}}
+                </h5>
+                <h4 style="font-weight: 200">{{post.year}} - <i
+                        class="fa fa-star-o" style="color: orange"></i>
+                    {{post.rating}}
+                </h4>
+
+                <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
+                                                                                 class="btn btn-danger"
+                                                                                 role="button"><span
+                        class="glyphicon glyphicon-facetime-video"
+                        aria-hidden="true"></span> Watch it!</a></p>
+                <button ng-click="shuffle()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <br>
+    </div>
+
+</div>

@@ -32,7 +32,7 @@ $( document ).ready(function() {
     $("#newReleases").click(function(){
         $('html, body').animate({ scrollTop: $('#navigation').offset().top });
     });
-    $("#topImdbSource").click(function(){
+    $("#topRandom").click(function(){
         $('html, body').animate({ scrollTop: $('#topImdb').offset().top });
     });
     $("[id^=imGenre]").click(function(){
