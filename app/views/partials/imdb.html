@@ -59,8 +59,6 @@
                             <div class="row" ng-switch-when="0">
 
                                 <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url">
-                                    {{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].genres}}
-
                                     <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].imgN}}"
@@ -79,8 +77,6 @@
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
                                 <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url">
-                                    {{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].genres}}
-
                                     <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].imgN}}"
@@ -100,8 +96,6 @@
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
                                 <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].url">
-                                    {{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].genres}}
-
                                     <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].imgN}}"
@@ -137,12 +131,11 @@
         </div>
         <br>
         <br>
-        <div ng-repeat="post in in filteredPostsTvShows = (shows | filter:search | filter:customFilterShows)"
+        <div ng-repeat="post in filteredPostsTvShows = (shows | filter:search | filter:customFilterShows)"
              class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
                                 <div class="col-sm-4" ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url">
-                                    {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].genres}}
                                     <a target="_blank" ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].imgN}}"
@@ -160,8 +153,6 @@
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
                                 <div class="col-sm-4" ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url">
-                                    {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].genres}}
-
                                     <a target="_blank" ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].imgN}}"
@@ -181,8 +172,6 @@
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
                                 <div class="col-sm-4" ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].url">
-                                    {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].genres}}
-
                                     <a target="_blank" ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
                                                               ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].imgN}}"
