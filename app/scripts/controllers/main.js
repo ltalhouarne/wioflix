@@ -138,14 +138,10 @@ angular.module('wioflixApp')
         $scope.categoryUser = "Any";
         $scope.rating = true;
 
-        //If Any return all
-        //Otherwise return movies with matching category
         $scope.customFilterCritic = function (data) {
             return $scope.categoryCritic === "Any" || data.genres.toString().indexOf($scope.categoryCritic) > -1;
         };
 
-        //If Any return all
-        //Otherwise return movies with matching category
         $scope.customFilterUser = function (data) {
             return $scope.categoryUser === "Any" || data.genres.toString().indexOf($scope.categoryUser) > -1;
         };
