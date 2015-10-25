@@ -21,7 +21,7 @@
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
-                        <input type="search" class="form-control smallW" ng-model="search"
+                        <input type="text" class="form-control smallW" ng-model="query"
                                placeholder="Search title or year...">
                     </div>
 
@@ -47,26 +47,29 @@
                 aria-hidden="true"></span></a></h5>
         <br>
 
-        <div ng-repeat="post in genres" style="display: inline-block;">
+        <div ng-repeat="post in genresMovies" style="display: inline-block;">
             <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryMovies=post.Genre">{{post.Genre}}</button>&nbsp;
         </div>
         <br>
         <br>
 
-        <div ng-repeat="post in movies | filter:search | filter:customFilterMovies"
+        <div ng-repeat="post in filteredPostsMovies = (movies | filter:search | filter:customFilterMovies)"
              class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4" ng-if="movies[(movies.indexOf(post))].url">
-                                    <a target="_blank" ng-href="{{movies[(movies.indexOf(post))].url}}"
+
+                                <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url">
+                                    {{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].genres}}
+
+                                    <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{movies[(movies.indexOf(post))].imgN}}"
+                                                              ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{movies[(movies.indexOf(post))].title}}
+                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{movies[(movies.indexOf(post))].year}} - <i
+                                    <h4 style="font-weight: 200">{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].year}} - <i
                                             class="fa fa-star-o" style="color: orange"></i>
-                                        {{movies[(movies.indexOf(post))].rating}}
+                                        {{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].rating}}
                                     </h4>
 
                                     <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
@@ -75,16 +78,18 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4" ng-if="movies[(movies.indexOf(post) + 1)].url">
-                                    <a target="_blank" ng-href="{{movies[(movies.indexOf(post) + 1)].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url">
+                                    {{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].genres}}
+
+                                    <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{movies[(movies.indexOf(post) + 1)].imgN}}"
+                                                              ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{movies[(movies.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) +
                                         1)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{movies[(movies.indexOf(post) + 1)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i> {{movies[(movies.indexOf(post)
+                                    <h4 style="font-weight: 200">{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i> {{filteredPostsMovies[(filteredPostsMovies.indexOf(post)
                                         + 1)].rating}}
                                     </h4>
 
@@ -94,16 +99,18 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4" ng-if="movies[(movies.indexOf(post) + 2)].url">
-                                    <a target="_blank" ng-href="{{movies[(movies.indexOf(post) + 2) ].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].url">
+                                    {{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].genres}}
+
+                                    <a target="_blank" ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{movies[(movies.indexOf(post) + 2)].imgN}}"
+                                                              ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{movies[(movies.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) +
                                         2)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{movies[(movies.indexOf(post) + 2)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i> {{movies[(movies.indexOf(post)
+                                    <h4 style="font-weight: 200">{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i> {{filteredPostsMovies[(filteredPostsMovies.indexOf(post)
                                         + 2)].rating}}
                                     </h4>
 
@@ -118,30 +125,32 @@
         </div>
     </div>
     <div ng-show="!type">
+
         <h5>Genre: {{categoryShows}} <a href="" style="text-decoration: none"
                                         ng-click="categoryShows='Any'"><span style="margin-bottom: -5px;"
                                                                              class="glyphicon glyphicon-remove-circle"
                                                                              aria-hidden="true"></span></a>
         </h5>
         <br>
-        <div ng-repeat="post in genres" style="display: inline-block;">
+        <div ng-repeat="post in genresTv" style="display: inline-block;">
             <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryShows=post.Genre">{{post.Genre}}</button>&nbsp;
         </div>
         <br>
         <br>
-        <div ng-repeat="post in shows | filter:search | filter:customFilterShows"
+        <div ng-repeat="post in in filteredPostsTvShows = (shows | filter:search | filter:customFilterShows)"
              class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4">
-                                    <a target="_blank" ng-href="{{shows[(shows.indexOf(post))].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url">
+                                    {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].genres}}
+                                    <a target="_blank" ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{shows[(shows.indexOf(post))].imgN}}"
+                                                              ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{shows[(shows.indexOf(post))].title}}
+                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{shows[(shows.indexOf(post))].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>{{shows[(shows.indexOf(post))].rating}}
+                                    <h4 style="font-weight: 200">{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].rating}}
                                     </h4>
 
                                     <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
@@ -150,16 +159,18 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4">
-                                    <a target="_blank" ng-href="{{shows[(shows.indexOf(post) + 1)].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url">
+                                    {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].genres}}
+
+                                    <a target="_blank" ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{shows[(shows.indexOf(post) + 1)].imgN}}"
+                                                              ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{shows[(shows.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) +
                                         1)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{shows[(shows.indexOf(post) + 1)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>{{shows[(shows.indexOf(post)
+                                    <h4 style="font-weight: 200">{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post)
                                         + 1)].rating}}
                                     </h4>
 
@@ -169,16 +180,18 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4">
-                                    <a target="_blank" ng-href="{{shows[(shows.indexOf(post) + 2) ].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].url">
+                                    {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].genres}}
+
+                                    <a target="_blank" ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{shows[(shows.indexOf(post) + 2)].imgN}}"
+                                                              ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{shows[(shows.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) +
                                         2)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{shows[(shows.indexOf(post) + 2)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i>{{shows[(shows.indexOf(post)
+                                    <h4 style="font-weight: 200">{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post)
                                         + 2)].rating}}
                                     </h4>
 

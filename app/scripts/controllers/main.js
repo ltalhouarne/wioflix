@@ -22,10 +22,18 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategories.json'
+            url: 'js/imdbCategoriesMovies.json'
         }).success(function (data) {
-            $scope.genres = data;
+            $scope.genresMovies = data;
         });
+
+        $http({
+            method: 'GET',
+            url: 'js/imdbCategoriesTv.json'
+        }).success(function (data) {
+            $scope.genresTv = data;
+        });
+
         $http({
             method: 'GET',
             url: 'js/imdbTV.json'
@@ -38,11 +46,15 @@ angular.module('wioflixApp')
         $scope.categoryShows = "Any";
 
         $scope.customFilterMovies = function (data) {
-            return $scope.categoryMovies === "Any" || data.genres.toString().indexOf($scope.categoryMovies) > -1;
+            return $scope.categoryMovies === "Any" || data.genres.toString().indexOf($scope.categoryMovies) != -1;
         };
 
         $scope.customFilterShows = function (data) {
-            return $scope.categoryShows === "Any" || data.genres.toString().indexOf($scope.categoryShows) > -1;
+            return $scope.categoryShows === "Any" || data.genres.toString().indexOf($scope.categoryShows) != -1;
+        };
+
+        $scope.search = function(item){
+            return $scope.query === undefined || item.title.toLowerCase().indexOf($scope.query) != -1 || item.year.indexOf($scope.query) != -1 ;
         };
     })
     //Rotten Tomatoes
@@ -56,9 +68,16 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/rtCategories.json'
+            url: 'js/rtCategoriesUser.json'
         }).success(function (data) {
-            $scope.genres = data;
+            $scope.genresUser = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/rtCategoriesCritic.json'
+        }).success(function (data) {
+            $scope.genresCritic = data;
         });
 
         $http({
@@ -79,6 +98,10 @@ angular.module('wioflixApp')
         $scope.customFilterAudience = function (data) {
             return $scope.categoryAudience === "Any" || data.genres.toString().indexOf($scope.categoryAudience) > -1;
         };
+
+        $scope.search = function(item){
+            return $scope.query === undefined || item.title.toLowerCase().indexOf($scope.query) != -1 || item.year.indexOf($scope.query) != -1 ;
+        };
     })
     //Metacritic
     .controller('McController', function mcController($scope, $http) {
@@ -98,9 +121,16 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcGenres.json'
+            url: 'js/mcGenresCritic.json'
         }).success(function (data) {
-            $scope.genres = data;
+            $scope.genresCritic = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/mcGenresUser.json'
+        }).success(function (data) {
+            $scope.genresUser = data;
         });
 
         $scope.type = true;
@@ -118,6 +148,10 @@ angular.module('wioflixApp')
         //Otherwise return movies with matching category
         $scope.customFilterUser = function (data) {
             return $scope.categoryUser === "Any" || data.genres.toString().indexOf($scope.categoryUser) > -1;
+        };
+
+        $scope.search = function(item){
+            return $scope.query === undefined || item.title.toLowerCase().indexOf($scope.query) != -1 || item.year.indexOf($scope.query) != -1 ;
         };
     })
     //New Releases - Recently Added

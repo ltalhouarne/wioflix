@@ -19,7 +19,7 @@
             <div id="navbar2" class="navbar-collapse collapse">
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
-                        <input type="search" class="form-control smallW" ng-model="search"
+                        <input type="text" class="form-control smallW" ng-model="query"
                                placeholder="Search title or year...">
                     </div>
                 </form>
@@ -43,26 +43,26 @@
                     style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
                     aria-hidden="true"></span></a></h5>
             <br>
-            <div ng-repeat="post in genres" style="display: inline-block;">
+            <div ng-repeat="post in genresCritic" style="display: inline-block;">
                 <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryTomatometer=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
             <br>
             <br>
 
-            <div ng-repeat="post in criticRatings | filter:search | filter:customFilterTomatometer"
+            <div ng-repeat="post in filteredPostsCritic = (criticRatings | filter:search | filter:customFilterTomatometer)"
                  class="aligned height repeated-item">
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4" ng-if="criticRatings[(criticRatings.indexOf(post))].url">
-                                    <a target="_blank" ng-href="{{criticRatings[(criticRatings.indexOf(post))].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url">
+                                    <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{criticRatings[(criticRatings.indexOf(post))].imgN}}"
+                                                              ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{criticRatings[(criticRatings.indexOf(post))].title}}
+                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{criticRatings[(criticRatings.indexOf(post))].year}} - <i
+                                    <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].year}} - <i
                                             class="fa fa-star-o" style="color: orange"></i>
-                                        {{criticRatings[(criticRatings.indexOf(post))].rating}}
+                                        {{filteredPostsCritic[(filteredPostsCritic.indexOf(post))].rating}}
                                     </h4>
 
                                     <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
@@ -71,16 +71,16 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4" ng-if="criticRatings[(criticRatings.indexOf(post) + 1)].url">
-                                    <a target="_blank" ng-href="{{criticRatings[(criticRatings.indexOf(post) + 1)].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url">
+                                    <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{criticRatings[(criticRatings.indexOf(post) + 1)].imgN}}"
+                                                              ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{criticRatings[(criticRatings.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
                                         1)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{criticRatings[(criticRatings.indexOf(post) + 1)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i> {{criticRatings[(criticRatings.indexOf(post)
+                                    <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 1)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i> {{filteredPostsCritic[(filteredPostsCritic.indexOf(post)
                                         + 1)].rating}}
                                     </h4>
 
@@ -90,16 +90,16 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4" ng-if="criticRatings[(criticRatings.indexOf(post) + 2)].url">
-                                    <a target="_blank" ng-href="{{criticRatings[(criticRatings.indexOf(post) + 2) ].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].url">
+                                    <a target="_blank" ng-href="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{criticRatings[(criticRatings.indexOf(post) + 2)].imgN}}"
+                                                              ng-src="{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{criticRatings[(criticRatings.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) +
                                         2)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{criticRatings[(criticRatings.indexOf(post) + 2)].year}} - <i
-                                            class="fa fa-star-o" style="color: orange"></i> {{criticRatings[(criticRatings.indexOf(post)
+                                    <h4 style="font-weight: 200">{{filteredPostsCritic[(filteredPostsCritic.indexOf(post) + 2)].year}} - <i
+                                            class="fa fa-star-o" style="color: orange"></i> {{filteredPostsCritic[(filteredPostsCritic.indexOf(post)
                                         + 2)].rating}}
                                     </h4>
 
@@ -121,26 +121,26 @@
             </h5>
             <br>
 
-            <div ng-repeat="post in genres" style="display: inline-block;">
+            <div ng-repeat="post in genresUser" style="display: inline-block;">
                 <button style="margin-bottom: 5px;" type="radio" class="btn btn-default" ng-click="$parent.categoryAudience=post.Genre">{{post.Genre}}</button>&nbsp;
             </div>
             <br>
             <br>
 
-            <div ng-repeat="post in userRatings | filter:search | filter:customFilterAudience"
-                 class="aligned height repeated-item">
+            <div ng-repeat="post in filteredPostsUsers = (userRatings | filter:search | filter:customFilterAudience)" class="aligned height repeated-item">
+
                 <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4">
-                                    <a target="_blank" ng-href="{{userRatings[(userRatings.indexOf(post))].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url">
+                                    <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{userRatings[(userRatings.indexOf(post))].imgN}}"
+                                                              ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{userRatings[(userRatings.indexOf(post))].title}}
+                                    <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{userRatings[(userRatings.indexOf(post))].year}} - <i
+                                    <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].year}} - <i
                                             class="fa fa-star-o" style="color: orange"></i>
-                                        {{userRatings[(userRatings.indexOf(post))].rating}}
+                                        {{filteredPostsUsers[(filteredPostsUsers.indexOf(post))].rating}}
                                     </h4>
 
                                     <p><a href="#" class="btn btn-primary" role="button">Info</a> <a href="#"
@@ -149,17 +149,17 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4">
-                                    <a target="_blank" ng-href="{{userRatings[(userRatings.indexOf(post) + 1)].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url">
+                                    <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{userRatings[(userRatings.indexOf(post) + 1)].imgN}}"
+                                                              ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{userRatings[(userRatings.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
                                         1)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{userRatings[(userRatings.indexOf(post) + 1)].year}} - <i
+                                    <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 1)].year}} - <i
                                             class="fa fa-star-o" style="color: orange"></i>
-                                        {{userRatings[(userRatings.indexOf(post)
+                                        {{filteredPostsUsers[(filteredPostsUsers.indexOf(post)
                                         + 1)].rating}}
                                     </h4>
 
@@ -169,17 +169,17 @@
                                             class="glyphicon glyphicon-facetime-video"
                                             aria-hidden="true"></span> Watch it!</a></p>
                                 </div>
-                                <div class="col-sm-4">
-                                    <a target="_blank" ng-href="{{userRatings[(userRatings.indexOf(post) + 2) ].url}}"
+                                <div class="col-sm-4" ng-if="filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].url">
+                                    <a target="_blank" ng-href="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2) ].url}}"
                                        class="thumbnail"><img onerror="this.style.display='none';"
-                                                              ng-src="{{userRatings[(userRatings.indexOf(post) + 2)].imgN}}"
+                                                              ng-src="{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].imgN}}"
                                                               alt=""></a>
-                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{userRatings[(userRatings.indexOf(post) +
+                                    <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) +
                                         2)].title}}
                                     </h5>
-                                    <h4 style="font-weight: 200">{{userRatings[(userRatings.indexOf(post) + 2)].year}} - <i
+                                    <h4 style="font-weight: 200">{{filteredPostsUsers[(filteredPostsUsers.indexOf(post) + 2)].year}} - <i
                                             class="fa fa-star-o" style="color: orange"></i>
-                                        {{userRatings[(userRatings.indexOf(post)
+                                        {{filteredPostsUsers[(filteredPostsUsers.indexOf(post)
                                         + 2)].rating}}
                                     </h4>
 
