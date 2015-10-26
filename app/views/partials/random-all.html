@@ -10,13 +10,12 @@
     <div ng-show="showAll || category!='Any'">
         <br>
         <h5>Genre: {{category}}</h5>
-        <br>
-        <br>
-        Here's our pick for you:
-        <br> <br>
+
         <div ng-repeat="post in filteredResults = (allMovies | filter:customFilter | limitTo: 1)">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
+            Here's our pick for you:
+            <br> <br>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
                 <a target="_blank" ng-href="{{post.url}}"
                    class="thumbnail"><img onerror="this.style.display='none';"
                                           ng-src="{{post.imgN}}"
@@ -37,7 +36,7 @@
                         aria-hidden="true"></span> Watch it!</a></p>
                 <button ng-click="shuffle()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </div>

@@ -252,9 +252,7 @@ angular.module('wioflixApp')
             $scope.imdbGenres = data;
         });
 
-        $scope.type = true;
         $scope.category = "Any";
-        $scope.showImdb = false;
 
         $scope.customFilter = function (data) {
             return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
@@ -278,11 +276,19 @@ angular.module('wioflixApp')
             shuffleService.shuffleArray($scope.rtUserRatings);
         });
 
+
         $http({
             method: 'GET',
-            url: 'js/rtCategories.json'
+            url: 'js/rtCategoriesUser.json'
         }).success(function (data) {
-            $scope.rtGenres = data;
+            $scope.rtGenresUser = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/rtCategoriesCritic.json'
+        }).success(function (data) {
+            $scope.rtGenresCritic = data;
         });
 
         $http({
@@ -292,11 +298,8 @@ angular.module('wioflixApp')
             $scope.rtCriticRatings = data;
             shuffleService.shuffleArray($scope.rtCriticRatings);
         });
-        $scope.type = true;
         $scope.category = "Any";
         $scope.rating = "null";
-        $scope.rat = false;
-        $scope.showRT = false;
 
         $scope.customFilter = function (data) {
             return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
@@ -330,17 +333,20 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcGenres.json'
+            url: 'js/mcGenresCritic.json'
         }).success(function (data) {
-            $scope.mcGenres = data;
+            $scope.genresCritic = data;
         });
 
-        $scope.type = true;
+        $http({
+            method: 'GET',
+            url: 'js/mcGenresUser.json'
+        }).success(function (data) {
+            $scope.genresUser = data;
+        });
+
         $scope.category = "Any";
         $scope.rating = "null";
-        $scope.rat = false;
-        $scope.showMeta = false;
-
 
         $scope.customFilter = function (data) {
             return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
