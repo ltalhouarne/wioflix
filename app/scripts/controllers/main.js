@@ -349,4 +349,19 @@ angular.module('wioflixApp')
         $scope.customFilter = function (data) {
             return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
+    })
+    //Scroll directive
+    .directive('nav', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                elem.bind('click', function() {
+                    debugger
+                    var mainContent = $('html, body');
+                    mainContent.animate({
+                        scrollTop: $('#navigation').offset().top
+                    }, 0, function() {});
+                });
+            }
+        }
     });
