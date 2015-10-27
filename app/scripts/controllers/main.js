@@ -15,28 +15,28 @@ angular.module('wioflixApp')
     .controller('ImdbController', function imdbController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/imdbMovies.json'
+            url: 'js/imdbMovies.json?version=200'
         }).success(function (data) {
             $scope.movies = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategoriesMovies.json'
+            url: 'js/imdbCategoriesMovies.json?version=200'
         }).success(function (data) {
             $scope.genresMovies = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategoriesTv.json'
+            url: 'js/imdbCategoriesTv.json?version=200'
         }).success(function (data) {
             $scope.genresTv = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/imdbTV.json'
+            url: 'js/imdbTV.json?version=200'
         }).success(function (data) {
             $scope.shows = data;
         });
@@ -61,28 +61,28 @@ angular.module('wioflixApp')
     .controller('RtController', function rtController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/rtMoviesUser.json'
+            url: 'js/rtMoviesUser.json?version=200'
         }).success(function (data) {
             $scope.userRatings = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtCategoriesUser.json'
+            url: 'js/rtCategoriesUser.json?version=200'
         }).success(function (data) {
             $scope.genresUser = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtCategoriesCritic.json'
+            url: 'js/rtCategoriesCritic.json?version=200'
         }).success(function (data) {
             $scope.genresCritic = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesCritic.json'
+            url: 'js/rtMoviesCritic.json?version=200'
         }).success(function (data) {
             $scope.criticRatings = data;
         });
@@ -107,28 +107,28 @@ angular.module('wioflixApp')
     .controller('McController', function mcController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/mcCritic.json'
+            url: 'js/mcCritic.json?version=200'
         }).success(function (data) {
             $scope.critic = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcUser.json'
+            url: 'js/mcUser.json?version=200'
         }).success(function (data) {
             $scope.userVotes = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcGenresCritic.json'
+            url: 'js/mcGenresCritic.json?version=200'
         }).success(function (data) {
             $scope.genresCritic = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcGenresUser.json'
+            url: 'js/mcGenresUser.json?version=200'
         }).success(function (data) {
             $scope.genresUser = data;
         });
@@ -154,13 +154,13 @@ angular.module('wioflixApp')
     .controller('NewReleasesAndAddedController', function newReleasesAndAddedController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/newReleases.json?'
+            url: 'js/newReleases.json?version=200?version=200'
         }).success(function (data) {
             $scope.newReleases = data;
         });
         $http({
             method: 'GET',
-            url: 'js/recentlyAdded.json?'
+            url: 'js/recentlyAdded.json?version=200?version=200'
         }).success(function (data) {
             $scope.recentlyAdded = data;
         });
@@ -211,14 +211,14 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/allCats.json'
+            url: 'js/allCats.json?version=200'
         }).success(function (data) {
             $scope.allGenres = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/allM.json'
+            url: 'js/allM.json?version=200'
         }).success(function (data) {
             $scope.allMovies = data;
             shuffleService.shuffleArray($scope.allMovies);
@@ -237,7 +237,7 @@ angular.module('wioflixApp')
         };
         $http({
             method: 'GET',
-            url: 'js/imdbMovies.json'
+            url: 'js/imdbMovies.json?version=200'
         }).success(function (data) {
             $scope.imdbMovies = data;
             shuffleService.shuffleArray($scope.imdbMovies);
@@ -245,7 +245,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategoriesMovies.json'
+            url: 'js/imdbCategoriesMovies.json?version=200'
         }).success(function (data) {
             $scope.imdbGenres = data;
         });
@@ -268,7 +268,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesUser.json'
+            url: 'js/rtMoviesUser.json?version=200'
         }).success(function (data) {
             $scope.rtUserRatings = data;
             shuffleService.shuffleArray($scope.rtUserRatings);
@@ -277,21 +277,21 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/rtCategoriesUser.json'
+            url: 'js/rtCategoriesUser.json?version=200'
         }).success(function (data) {
             $scope.rtGenresUser = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtCategoriesCritic.json'
+            url: 'js/rtCategoriesCritic.json?version=200'
         }).success(function (data) {
             $scope.rtGenresCritic = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesCritic.json'
+            url: 'js/rtMoviesCritic.json?version=200'
         }).success(function (data) {
             $scope.rtCriticRatings = data;
             shuffleService.shuffleArray($scope.rtCriticRatings);
@@ -315,7 +315,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcCritic.json'
+            url: 'js/mcCritic.json?version=200'
         }).success(function (data) {
             $scope.mcCriticRatings = data;
             shuffleService.shuffleArray($scope.mcCriticRatings);
@@ -323,7 +323,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcUser.json'
+            url: 'js/mcUser.json?version=200'
         }).success(function (data) {
             $scope.mcUserRatings = data;
             shuffleService.shuffleArray($scope.mcUserRatings);
@@ -331,14 +331,14 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/mcGenresCritic.json'
+            url: 'js/mcGenresCritic.json?version=200'
         }).success(function (data) {
             $scope.genresCritic = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcGenresUser.json'
+            url: 'js/mcGenresUser.json?version=200'
         }).success(function (data) {
             $scope.genresUser = data;
         });
