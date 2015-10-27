@@ -7,10 +7,10 @@
         </div>
     </div>
 
-    <div ng-show="showAll || category!='Any'">
+    <div>
         <br>
         <h5>Genre: {{category}}</h5>
-
+        <br>
         <div ng-repeat="post in filteredResults = (allMovies | filter:customFilter | limitTo: 1)">
             Here's our pick for you:
             <br> <br>

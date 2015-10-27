@@ -224,9 +224,7 @@ angular.module('wioflixApp')
             shuffleService.shuffleArray($scope.allMovies);
         });
 
-        $scope.type = true;
         $scope.category = "Any";
-        $scope.showAll = false;
 
         $scope.customFilter = function (data) {
             return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
@@ -247,7 +245,7 @@ angular.module('wioflixApp')
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategories.json'
+            url: 'js/imdbCategoriesMovies.json'
         }).success(function (data) {
             $scope.imdbGenres = data;
         });
