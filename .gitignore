@@ -4,9 +4,9 @@ dist/
 
 bower_components/
 
-app/js/
-
 .tmp/
+
+/app/js
 
 .idea
 

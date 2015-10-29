@@ -1,0 +1,44 @@
+<div ng-controller="ShuffleImdbController">
+    <br>
+
+    <div id="topImdb" ng-repeat="post in imdbGenres" style="display: inline-block;">
+        <button type="radio" style="margin-bottom: 5px;" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
+    </div>
+    <div ng-show="category!='Any'">
+        <br>
+        <h5>Genre: {{category}} </h5>
+        <br>
+        <br>
+        Here's our pick for you:
+        <br> <br>
+
+        <div ng-repeat="post in filteredResults = (imdbMovies | filter:customFilter | limitTo: 1)">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <a target="_blank" ng-href="{{post.url}}"
+                   class="thumbnail"><img onerror="this.style.display='none';"
+                                          ng-src="{{post.imgN}}"
+                                          alt=""></a>
+                <h5 style="font-weight: 400">{{post.title}}
+                </h5>
+                <h4 style="font-weight: 200">{{post.year}} - <i
+                        class="fa fa-star-o" style="color: orange"></i>
+                    {{post.rating}}
+                </h4>
+
+                <p><a target="_blank"
+                      href="{{post.url}}"
+                      class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                        href="{{post.urlN}}"
+                                                                        class="btn btn-danger"
+                                                                        role="button"><span
+                        class="glyphicon glyphicon-facetime-video"
+                        aria-hidden="true"></span> Watch it!</a></p>
+                <button ng-click="shuffle()" class="btn btn-default">New pick <i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <br>
+    </div>
+
+</div>

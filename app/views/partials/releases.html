@@ -1,43 +1,55 @@
-<div ng-controller="PostsCtrl4">
+<div ng-controller="NewReleasesAndAddedController">
     <div class="alignedDi">
         <button id="recentlyAdded" type="radio" class="btn btn-default" ng-click="type=true">Recently Added</button>
         <button id="newReleases" type="radio" class="btn btn-default" ng-click="type=false">New Releases</button>
         <br><br>
 
-        <div ng-repeat="post in posts" ng-show="type == true">
+        <div ng-repeat="post in recentlyAdded" ng-show="type == true">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+0)].url}}"
-                                                         class="thumbnail"><img onerror="this.style.display='none';"
-                                                                                ng-src="{{posts[($index+0)].img}}"
-                                                                                alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+1)].url}}"
-                                                         class="thumbnail"><img onerror="this.style.display='none';"
-                                                                                ng-src="{{posts[($index+1)].img}}"
-                                                                                alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts[($index+2)].url}}"
-                                                         class="thumbnail"><img onerror="this.style.display='none';"
-                                                                                ng-src="{{posts[($index+2)].img}}"
-                                                                                alt=""></a></div>
+                                <div class="col-sm-4" ng-if="recentlyAdded[$index].url"><a target="_blank"
+                                                                                   ng-href="{{recentlyAdded[$index].url}}"
+                                                                                   class="thumbnail"><img
+                                        onerror="this.style.display='none';"
+                                        ng-src="{{recentlyAdded[($index+0)].img}}"
+                                        alt=""></a></div>
+                                <div class="col-sm-4" ng-if="recentlyAdded[$index + 1].url"><a target="_blank"
+                                                                                       ng-href="{{recentlyAdded[($index + 1)].url}}"
+                                                                                       class="thumbnail"><img
+                                        onerror="this.style.display='none';"
+                                        ng-src="{{recentlyAdded[($index+1)].img}}"
+                                        alt=""></a></div>
+                                <div class="col-sm-4" ng-if="recentlyAdded[$index + 2].url"><a target="_blank"
+                                                                                       ng-href="{{recentlyAdded[($index + 2)].url}}"
+                                                                                       class="thumbnail"><img
+                                        onerror="this.style.display='none';"
+                                        ng-src="{{recentlyAdded[($index+2)].img}}"
+                                        alt=""></a></div>
                             </div>
 
                         </span>
         </div>
-        <div ng-repeat="post in posts2" ng-show="type == false">
+        <div ng-repeat="post in newReleases" ng-show="type == false">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+0)].url}}"
-                                                         class="thumbnail"><img onerror="this.style.display='none';"
-                                                                                ng-src="{{posts2[($index+0)].img}}"
-                                                                                alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+1)].url}}"
-                                                         class="thumbnail"><img onerror="this.style.display='none';"
-                                                                                ng-src="{{posts2[($index+1)].img}}"
-                                                                                alt=""></a></div>
-                                <div class="col-sm-4"><a target="_blank" ng-href="{{posts2[($index+2)].url}}"
-                                                         class="thumbnail"><img onerror="this.style.display='none';"
-                                                                                ng-src="{{posts2[($index+2)].img}}"
-                                                                                alt=""></a></div>
+                                <div class="col-sm-4" ng-if="newReleases[$index].url"><a target="_blank"
+                                                                                    ng-href="{{newReleases[$index].url}}"
+                                                                                    class="thumbnail"><img
+                                        onerror="this.style.display='none';"
+                                        ng-src="{{newReleases[($index+0)].img}}"
+                                        alt=""></a></div>
+                                <div class="col-sm-4" ng-if="newReleases[($index + 1)].url"><a target="_blank"
+                                                                                          ng-href="{{newReleases[($index + 1)].url}}"
+                                                                                          class="thumbnail"><img
+                                        onerror="this.style.display='none';"
+                                        ng-src="{{newReleases[($index+1)].img}}"
+                                        alt=""></a></div>
+                                <div class="col-sm-4" ng-if="newReleases[($index + 2)].url"><a target="_blank"
+                                                                                          ng-href="{{newReleases[($index + 2)].url}}"
+                                                                                          class="thumbnail"><img
+                                        onerror="this.style.display='none';"
+                                        ng-src="{{newReleases[($index+2)].img}}"
+                                        alt=""></a></div>
                             </div>
 
                         </span>

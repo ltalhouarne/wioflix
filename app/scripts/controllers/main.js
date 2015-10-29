@@ -3,31 +3,42 @@
 /**
  * @ngdoc function
  * @name wioflixApp.controller:MainCtrl
- * @description
+ * @description Contains all the data relevant to the logic of the partial views.
+ * Most of the data is from the movies and tv shows.
+ * The controllers also contain the filters and the booleans corresponding to
+ * the context selected by the user.
+ *
  * # MainCtrl
- * Controller of the wioflixApp
- * Assigns global variables
  */
 angular.module('wioflixApp')
-    .controller('PostsCtrl', function PostsCtrl($scope, $http) {
+    //IMDB
+    .controller('ImdbController', function imdbController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/imdbMovies.json?version=20'
+            url: 'js/imdbMovies.json?version=200'
         }).success(function (data) {
-            $scope.posts = data; // response data
+            $scope.movies = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/imdbCategories.json?version=20'
+            url: 'js/imdbCategoriesMovies.json?version=200'
         }).success(function (data) {
-            $scope.posts3 = data; // response data
+            $scope.genresMovies = data;
         });
+
         $http({
             method: 'GET',
-            url: 'js/imdbTV.json?version=20'
+            url: 'js/imdbCategoriesTv.json?version=200'
         }).success(function (data) {
-            $scope.posts2 = data; // response data
+            $scope.genresTv = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/imdbTV.json?version=200'
+        }).success(function (data) {
+            $scope.shows = data;
         });
 
         $scope.type = true;
@@ -35,37 +46,45 @@ angular.module('wioflixApp')
         $scope.categoryShows = "Any";
 
         $scope.customFilterMovies = function (data) {
-            if ($scope.categoryMovies === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryMovies) > -1) return true;
-            return false;
+            return $scope.categoryMovies === "Any" || data.genres.toString().indexOf($scope.categoryMovies) != -1;
         };
 
         $scope.customFilterShows = function (data) {
-            if ($scope.categoryShows === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryShows) > -1) return true;
-            return false;
+            return $scope.categoryShows === "Any" || data.genres.toString().indexOf($scope.categoryShows) != -1;
+        };
+
+        $scope.search = function(item){
+            return $scope.query === undefined || item.title.toLowerCase().indexOf($scope.query) != -1 || item.year.indexOf($scope.query) != -1 ;
         };
     })
-    .controller('PostsCtrl2', function PostsCtrl2($scope, $http) {
+    //Rotten Tomatoes
+    .controller('RtController', function rtController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/rtMoviesUser.json?version=20'
+            url: 'js/rtMoviesUser.json?version=200'
         }).success(function (data) {
-            $scope.posts2 = data; // response data
+            $scope.userRatings = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtCategories.json?version=20'
+            url: 'js/rtCategoriesUser.json?version=200'
         }).success(function (data) {
-            $scope.posts3 = data; // response data
+            $scope.genresUser = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesCritic.json?version=20'
+            url: 'js/rtCategoriesCritic.json?version=200'
         }).success(function (data) {
-            $scope.posts = data; // response data
+            $scope.genresCritic = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/rtMoviesCritic.json?version=200'
+        }).success(function (data) {
+            $scope.criticRatings = data;
         });
         $scope.type = true;
         $scope.categoryTomatometer = "Any";
@@ -73,37 +92,45 @@ angular.module('wioflixApp')
         $scope.rating = true;
 
         $scope.customFilterTomatometer = function (data) {
-            if ($scope.categoryTomatometer === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryTomatometer) > -1) return true;
-            return false;
+            return $scope.categoryTomatometer === "Any" || data.genres.toString().indexOf($scope.categoryTomatometer) > -1;
         };
 
         $scope.customFilterAudience = function (data) {
-            if ($scope.categoryAudience === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryAudience) > -1) return true;
-            return false;
+            return $scope.categoryAudience === "Any" || data.genres.toString().indexOf($scope.categoryAudience) > -1;
+        };
+
+        $scope.search = function(item){
+            return $scope.query === undefined || item.title.toLowerCase().indexOf($scope.query) != -1 || item.year.indexOf($scope.query) != -1 ;
         };
     })
-    .controller('PostsCtrl3', function PostsCtrl3($scope, $http) {
+    //Metacritic
+    .controller('McController', function mcController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/mcCritic.json?version=20'
+            url: 'js/mcCritic.json?version=200'
         }).success(function (data) {
-            $scope.posts2 = data; // response data
+            $scope.critic = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcUser.json?version=20'
+            url: 'js/mcUser.json?version=200'
         }).success(function (data) {
-            $scope.posts3 = data; // response data
+            $scope.userVotes = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcGenres.json?version=20'
+            url: 'js/mcGenresCritic.json?version=200'
         }).success(function (data) {
-            $scope.posts = data; // response data
+            $scope.genresCritic = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/mcGenresUser.json?version=200'
+        }).success(function (data) {
+            $scope.genresUser = data;
         });
 
         $scope.type = true;
@@ -112,48 +139,52 @@ angular.module('wioflixApp')
         $scope.rating = true;
 
         $scope.customFilterCritic = function (data) {
-            if ($scope.categoryCritic === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryCritic) > -1) return true;
-            return false;
+            return $scope.categoryCritic === "Any" || data.genres.toString().indexOf($scope.categoryCritic) > -1;
         };
 
         $scope.customFilterUser = function (data) {
-            if ($scope.categoryUser === "Any") return true;
-            if (data.genres.toString().indexOf($scope.categoryUser) > -1) return true;
-            return false;
+            return $scope.categoryUser === "Any" || data.genres.toString().indexOf($scope.categoryUser) > -1;
+        };
+
+        $scope.search = function(item){
+            return $scope.query === undefined || item.title.toLowerCase().indexOf($scope.query) != -1 || item.year.indexOf($scope.query) != -1 ;
         };
     })
-    .controller('PostsCtrl4', function PostsCtrl3($scope, $http) {
+    //New Releases - Recently Added
+    .controller('NewReleasesAndAddedController', function newReleasesAndAddedController($scope, $http) {
         $http({
             method: 'GET',
-            url: 'js/newReleases.json?version=22'
+            url: 'js/newReleases.json?version=200?version=200'
         }).success(function (data) {
-            $scope.posts2 = data; // response data
+            $scope.newReleases = data;
         });
         $http({
             method: 'GET',
-            url: 'js/recentlyAdded.json?version=22'
+            url: 'js/recentlyAdded.json?version=200?version=200'
         }).success(function (data) {
-            $scope.posts = data; // response data
+            $scope.recentlyAdded = data;
         });
         $scope.type = "none";
     })
-    .controller('mainController', function mainController($scope) {
-        $scope.link1 = false;
-        $scope.link2 = false;
-        $scope.link3 = false;
-        $scope.link4 = false;
-        $scope.link5 = false;
+    //Main
+    .controller('MainController', function mainController($scope) {
+        //All booleans tracking the context chosen by a user.
+        $scope.rtClicked = false;
+        $scope.imdbClicked = false;
+        $scope.mcClicked = false;
+        $scope.newMoviesClicked = false;
+        $scope.randomSelectionClicked = false;
         $scope.imdb = false;
         $scope.rt = false;
         $scope.meta = false;
         $scope.all = false;
         $scope.view = true;
-
     })
+    //Shuffle service used by below shuffle controllers
+    .service('shuffleService', function(){
+        var shuffleService = {};
 
-    .controller('PostsCtrlShuffleAll', function PostsCtrl3($scope, $http) {
-        var shuffleArray = function (array) {
+        shuffleService.shuffleArray = function (array) {
             var m = array.length, t, i;
 
             // While there remain elements to shuffle
@@ -168,204 +199,169 @@ angular.module('wioflixApp')
             }
 
             return array;
-        }
-
-        $scope.shuffle = function () {
-            shuffleArray($scope.posts2);
-        }
-
-        $http({
-            method: 'GET',
-            url: 'js/allCats.json?version=20'
-        }).success(function (data) {
-            $scope.posts = data; // response data
-        });
-
-        $http({
-            method: 'GET',
-            url: 'js/allM.json?version=20'
-        }).success(function (data) {
-            $scope.posts2 = data; // response data
-            shuffleArray($scope.posts2);
-        });
-
-        $scope.type = true;
-        $scope.category = "Any";
-        $scope.showAll = false;
-
-        $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
-        };
-    })
-    .controller('PostsCtrlShuffleImdb', function PostsCtrl($scope, $http) {
-        var shuffleArray = function (array) {
-            var m = array.length, t, i;
-
-            // While there remain elements to shuffle
-            while (m) {
-                // Pick a remaining element…
-                i = Math.floor(Math.random() * m--);
-
-                // And swap it with the current element.
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
-            }
-
-            return array;
-        }
-
-        $scope.shuffle = function () {
-            shuffleArray($scope.posts);
-        }
-        $http({
-            method: 'GET',
-            url: 'js/imdbMovies.json?version=20'
-        }).success(function (data) {
-            $scope.posts = data; // response data
-            shuffleArray($scope.posts);
-        });
-
-        $http({
-            method: 'GET',
-            url: 'js/imdbCategories.json?version=20'
-        }).success(function (data) {
-            $scope.posts3 = data; // response data
-        });
-        $http({
-            method: 'GET',
-            url: 'js/imdbTV.json?version=20'
-        }).success(function (data) {
-            $scope.posts2 = data; // response data
-            shuffleArray($scope.posts);
-        });
-
-        $scope.type = true;
-        $scope.category = "Any";
-        $scope.showImdb = false;
-
-        $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
         };
 
+        return shuffleService;
     })
-    .controller('PostsCtrlShuffleRt', function PostsCtrl2($scope, $http) {
-        var shuffleArray = function (array) {
-            var m = array.length, t, i;
-
-            // While there remain elements to shuffle
-            while (m) {
-                // Pick a remaining element…
-                i = Math.floor(Math.random() * m--);
-
-                // And swap it with the current element.
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
-            }
-
-            return array;
-        }
-
+    //Shuffle All
+    .controller('ShuffleAllController', function shuffleAllController($scope, $http, shuffleService) {
         $scope.shuffle = function () {
-            shuffleArray($scope.posts2);
-            shuffleArray($scope.posts);
-        }
+            shuffleService.shuffleArray($scope.allMovies);
+        };
+
         $http({
             method: 'GET',
-            url: 'js/rtMoviesUser.json?version=20'
+            url: 'js/allCats.json?version=200'
         }).success(function (data) {
-            $scope.posts2 = data; // response data
-            shuffleArray($scope.posts2);
+            $scope.allGenres = data;
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtCategories.json?version=20'
+            url: 'js/allM.json?version=200'
         }).success(function (data) {
-            $scope.posts3 = data; // response data
+            $scope.allMovies = data;
+            shuffleService.shuffleArray($scope.allMovies);
+        });
+
+        $scope.category = "Any";
+
+        $scope.customFilter = function (data) {
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
+        };
+    })
+    //Shuffle IMDB
+    .controller('ShuffleImdbController', function shuffleImdbController($scope, $http, shuffleService) {
+        $scope.shuffle = function () {
+            shuffleService.shuffleArray($scope.imdbMovies);
+        };
+        $http({
+            method: 'GET',
+            url: 'js/imdbMovies.json?version=200'
+        }).success(function (data) {
+            $scope.imdbMovies = data;
+            shuffleService.shuffleArray($scope.imdbMovies);
         });
 
         $http({
             method: 'GET',
-            url: 'js/rtMoviesCritic.json?version=20'
+            url: 'js/imdbCategoriesMovies.json?version=200'
         }).success(function (data) {
-            $scope.posts = data; // response data
-            shuffleArray($scope.posts);
+            $scope.imdbGenres = data;
         });
-        $scope.type = true;
+
+        $scope.category = "Any";
+
+        $scope.customFilter = function (data) {
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
+        };
+    })
+    //Shuffle RT
+    .controller('ShuffleRtController', function shuffleRtController($scope, $http, shuffleService) {
+        $scope.shuffleUserRatings = function () {
+            shuffleService.shuffleArray($scope.rtUserRatings);
+        };
+
+        $scope.shuffleCriticRatings = function () {
+            shuffleService.shuffleArray($scope.rtCriticRatings);
+        };
+
+        $http({
+            method: 'GET',
+            url: 'js/rtMoviesUser.json?version=200'
+        }).success(function (data) {
+            $scope.rtUserRatings = data;
+            shuffleService.shuffleArray($scope.rtUserRatings);
+        });
+
+
+        $http({
+            method: 'GET',
+            url: 'js/rtCategoriesUser.json?version=200'
+        }).success(function (data) {
+            $scope.rtGenresUser = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/rtCategoriesCritic.json?version=200'
+        }).success(function (data) {
+            $scope.rtGenresCritic = data;
+        });
+
+        $http({
+            method: 'GET',
+            url: 'js/rtMoviesCritic.json?version=200'
+        }).success(function (data) {
+            $scope.rtCriticRatings = data;
+            shuffleService.shuffleArray($scope.rtCriticRatings);
+        });
         $scope.category = "Any";
         $scope.rating = "null";
-        $scope.rat = false;
-        $scope.showRT = false;
-
 
         $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
     })
-    .controller('PostsCtrl3ShuffleMc', function PostsCtrl3($scope, $http) {
-        var shuffleArray = function (array) {
-            var m = array.length, t, i;
+    //Shuffle MC
+    .controller('ShuffleMcController', function shuffleMcController($scope, $http, shuffleService) {
+        $scope.shuffleCritic = function () {
+            shuffleService.shuffleArray($scope.mcCriticRatings);
+        };
 
-            // While there remain elements to shuffle
-            while (m) {
-                // Pick a remaining element…
-                i = Math.floor(Math.random() * m--);
+        $scope.shuffleUserRatings = function () {
+            shuffleService.shuffleArray($scope.mcUserRatings);
+        };
 
-                // And swap it with the current element.
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
-            }
-
-            return array;
-        }
-
-        $scope.shuffle = function () {
-            shuffleArray($scope.posts2);
-            shuffleArray($scope.posts3);
-        }
         $http({
             method: 'GET',
-            url: 'js/mcCritic.json?version=20'
+            url: 'js/mcCritic.json?version=200'
         }).success(function (data) {
-            $scope.posts2 = data; // response data
-            shuffleArray($scope.posts2);
+            $scope.mcCriticRatings = data;
+            shuffleService.shuffleArray($scope.mcCriticRatings);
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcUser.json?version=20'
+            url: 'js/mcUser.json?version=200'
         }).success(function (data) {
-            $scope.posts3 = data; // response data
-            shuffleArray($scope.posts3);
+            $scope.mcUserRatings = data;
+            shuffleService.shuffleArray($scope.mcUserRatings);
         });
 
         $http({
             method: 'GET',
-            url: 'js/mcGenres.json?version=20'
+            url: 'js/mcGenresCritic.json?version=200'
         }).success(function (data) {
-            $scope.posts = data; // response data
-
+            $scope.genresCritic = data;
         });
 
-        $scope.type = true;
+        $http({
+            method: 'GET',
+            url: 'js/mcGenresUser.json?version=200'
+        }).success(function (data) {
+            $scope.genresUser = data;
+        });
+
         $scope.category = "Any";
         $scope.rating = "null";
-        $scope.rat = false;
-        $scope.showMeta = false;
-
 
         $scope.customFilter = function (data) {
-            if ($scope.category === "Any") return true;
-            if (data.genres.toString().indexOf($scope.category) > -1) return true;
-            return false;
+            return $scope.category === "Any" || data.genres.toString().indexOf($scope.category) > -1;
         };
     })
+    //Scroll directive
+    .directive('nav', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                elem.bind('click', function() {
+                    debugger
+                    var mainContent = $('html, body');
+                    mainContent.animate({
+                        scrollTop: $('#navigation').offset().top
+                    }, 0, function() {});
+                });
+            }
+        }
+    });
