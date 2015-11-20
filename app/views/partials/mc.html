@@ -39,7 +39,7 @@
         </nav>
     </div>
     <div class="list-group">
-            <div ng-show="rating">
+            <div ng-if="rating">
                 <h5>Genre: {{categoryCritic}} <a href="" style="text-decoration: none"
                                                  ng-click="categoryCritic='Any'"><span
                         style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
@@ -118,7 +118,7 @@
                      </span>
                 </div>
             </div>
-            <div ng-show="!rating">
+            <div ng-if="!rating">
 
                 <h5>Genre: {{categoryUser}} <a href="" style="text-decoration: none"
                                                ng-click="categoryUser='Any'"><span style="margin-bottom: -5px;"

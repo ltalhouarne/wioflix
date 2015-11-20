@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div ng-show="rating=='tomatometer'">
+    <div ng-if="rating=='tomatometer'">
         <div ng-repeat="post in rtGenresCritic" style="display: inline-block;">
             <button type="radio" style="margin-bottom: 5px;" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
         </div>
@@ -16,7 +16,7 @@
         <br>
     </div>
 
-    <div ng-show="rating=='audience'">
+    <div ng-if="rating=='audience'">
         <div ng-repeat="post in rtGenresUser" style="display: inline-block;">
             <button type="radio" style="margin-bottom: 5px;" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
         </div>
@@ -25,7 +25,7 @@
         <br>
     </div>
 
-    <div ng-show="rating=='audience'">
+    <div ng-if="rating=='audience'">
         <div ng-repeat="post in filteredResults = (rtUserRatings | filter:customFilter | limitTo: 1)">
             Here's our pick for you:
             <br> <br>
@@ -55,7 +55,7 @@
             <div class="col-sm-1"></div>
         </div>
     </div>
-    <div ng-show="rating=='tomatometer'">
+    <div ng-if="rating=='tomatometer'">
         <div ng-repeat="post in filteredResults = (rtCriticRatings | filter:customFilter | limitTo: 1)">
             Here's our pick for you:
             <br> <br>

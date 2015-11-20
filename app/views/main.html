@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div id="navigation" class="jumbotron" ng-show="rtClicked || imdbClicked || mcClicked || newMoviesClicked || randomSelectionClicked">
+    <div id="navigation" class="jumbotron" ng-if="rtClicked || imdbClicked || mcClicked || newMoviesClicked || randomSelectionClicked">
         <div id="metacritic" class="container aligned100 heighthv" ng-if="mcClicked && !imdbClicked && !rtClicked && !newMoviesClicked && !randomSelectionClicked"
              ng-include="'views/partials/mc.html'"></div>
 

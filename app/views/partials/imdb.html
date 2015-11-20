@@ -38,7 +38,7 @@
         </nav>
     </div>
     <div class="list-group">
-        <div ng-show="type">
+        <div ng-if="type">
             <h5>Genre: {{categoryMovies}} <a href="" style="text-decoration: none"
                                              ng-click="categoryMovies='Any'"><span
                     style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
@@ -140,7 +140,7 @@
                         </span>
             </div>
         </div>
-        <div ng-show="!type">
+        <div ng-if="!type">
 
             <h5>Genre: {{categoryShows}} <a href="" style="text-decoration: none"
                                             ng-click="categoryShows='Any'"><span style="margin-bottom: -5px;"

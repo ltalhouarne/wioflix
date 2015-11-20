@@ -4,7 +4,7 @@
         <button id="newReleases" type="radio" class="btn btn-default" ng-click="type=false">New Releases</button>
         <br><br>
 
-        <div ng-repeat="post in recentlyAdded" ng-show="type == true">
+        <div ng-repeat="post in recentlyAdded" ng-if="type == true">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
                                 <div class="col-sm-4" ng-if="recentlyAdded[$index].url"><a target="_blank"
@@ -29,7 +29,7 @@
 
                         </span>
         </div>
-        <div ng-repeat="post in newReleases" ng-show="type == false">
+        <div ng-repeat="post in newReleases" ng-if="type == false">
                         <span ng-switch="" on="$index % 3">
                             <div class="row" ng-switch-when="0">
                                 <div class="col-sm-4" ng-if="newReleases[$index].url"><a target="_blank"

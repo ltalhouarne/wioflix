@@ -4,7 +4,7 @@
     <div id="topImdb" ng-repeat="post in imdbGenres" style="display: inline-block;">
         <button type="radio" style="margin-bottom: 5px;" class="btn btn-default" ng-click="$parent.category=post.Genre">{{post.Genre}}</button>&nbsp;
     </div>
-    <div ng-show="category!='Any'">
+    <div ng-if="category!='Any'">
         <br>
         <h5>Genre: {{category}} </h5>
         <br>
