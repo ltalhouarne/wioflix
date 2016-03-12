@@ -3,7 +3,7 @@
 Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 
 
-![alt](https://github.com/ltalhouarne/whatisonnetflix/blob/master/app/images/screenshot.png)
+![alt](https://github.com/ltalhouarne/whatisonnetflix/blob/master/screenshot/screenshot.png)
 
 # How to run?
 
