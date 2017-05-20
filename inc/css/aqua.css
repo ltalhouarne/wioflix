@@ -1,0 +1,100 @@
+/* ==========================================================================
+
+   Ultimate Flat - Bootstrap On Page Template
+   CSS STYLE AQUA
+
+   ========================================================================== */
+#header,
+#image,
+#video,
+#newsletter {
+  background-color: #019fb9;
+}
+#social {
+  background-color: #9ad4e3;
+}
+.social-icon {
+  background-color: #107e89;
+  color: #ffffff;
+}
+.text-white {
+  color: #ffffff;
+}
+.text-blue {
+  color: #0d2338;
+}
+#feature .item-icon {
+  border: 2px solid #0d2338;
+}
+/*----------------------------------------
+    SIDE MENU
+----------------------------------------*/
+#sidebar-wrapper {
+  background: #107e89;
+}
+.sidebar-nav li a {
+  color: #ffffff;
+}
+.sidebar-nav li a:hover {
+  color: #444444;
+  background: rgba(255, 255, 255, 0.2);
+}
+.sidebar-nav > .sidebar-brand a {
+  color: #ffffff;
+}
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #444444;
+}
+.toggle {
+  color: #025156;
+}
+/*----------------------------------------
+    CUSTOM BUTTON
+----------------------------------------*/
+.btn-lead {
+  color: #ffffff;
+  background-color: #57c3e8;
+  border-color: #57c3e8;
+  transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.btn-lead:hover,
+.btn-lead:focus,
+.btn-lead:active,
+.btn-lead.active,
+.open .dropdown-toggle.btn-lead {
+  color: #ffffff;
+  background-color: #269095;
+  border-color: #269095;
+}
+.btn-lead:active,
+.btn-lead.active,
+.open .dropdown-toggle.btn-lead {
+  background-image: none;
+}
+.btn-lead.disabled,
+.btn-lead[disabled],
+fieldset[disabled] .btn-lead,
+.btn-lead.disabled:hover,
+.btn-lead[disabled]:hover,
+fieldset[disabled] .btn-lead:hover,
+.btn-lead.disabled:focus,
+.btn-lead[disabled]:focus,
+fieldset[disabled] .btn-lead:focus,
+.btn-lead.disabled:active,
+.btn-lead[disabled]:active,
+fieldset[disabled] .btn-lead:active,
+.btn-lead.disabled.active,
+.btn-lead[disabled].active,
+fieldset[disabled] .btn-lead.active {
+  background-color: #57c3e8;
+  border-color: #57c3e8;
+}
+.btn-lead .badge {
+  color: #57c3e8;
+  background-color: #ffffff;
+}
+.btn-link:hover {
+  color: #269095 !important;
+}

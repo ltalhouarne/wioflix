@@ -1,0 +1,122 @@
+/* ==========================================================================
+
+   Ultimate Flat - Bootstrap On Page Template
+   CSS STYLE PURPLE
+
+   ========================================================================== */
+
+
+@primary: #82358b;
+@light: #c898c5; 
+@bring: #a164a5;
+@dark: #6d237d;
+@btn-prm: #62246f;
+@blow-dark: #351941;
+
+@white: #FFF;
+@dark-grey: #444;
+@text-blue: #0d2338;
+
+
+#header, #image, #video, #newsletter {
+    background-color: @primary;
+}
+#social {
+    background-color: @light;
+}
+.social-icon {
+    background-color: @dark;   
+    color: @white;
+}   
+
+.text-white {
+    color:@white;
+}
+
+.text-blue {
+    color: @text-blue;
+}
+
+#feature .item-icon {
+    border: 2px solid @text-blue;
+}
+
+/*----------------------------------------
+    SIDE MENU
+----------------------------------------*/
+
+#sidebar-wrapper {
+    background: @dark;
+}
+.sidebar-nav li a {
+    color: @white;
+}
+.sidebar-nav li a:hover {
+    color: @dark-grey;
+    background: rgba(255,255,255,0.2);
+}
+.sidebar-nav > .sidebar-brand a {
+    color: @white;
+}
+.sidebar-nav > .sidebar-brand a:hover {
+    color: @dark-grey;
+}
+.toggle {
+    color: @blow-dark;
+}
+
+/*----------------------------------------
+    CUSTOM BUTTON
+----------------------------------------*/
+
+.btn-lead { 
+    color: @white; 
+    background-color: @bring; 
+    border-color: @bring;
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+} 
+ 
+.btn-lead:hover, 
+.btn-lead:focus, 
+.btn-lead:active, 
+.btn-lead.active, 
+.open .dropdown-toggle.btn-lead { 
+    color: @white; 
+    background-color: @btn-prm; 
+    border-color: @btn-prm;
+} 
+ 
+.btn-lead:active, 
+.btn-lead.active, 
+.open .dropdown-toggle.btn-lead { 
+    background-image: none; 
+} 
+ 
+.btn-lead.disabled, 
+.btn-lead[disabled], 
+fieldset[disabled] .btn-lead, 
+.btn-lead.disabled:hover, 
+.btn-lead[disabled]:hover, 
+fieldset[disabled] .btn-lead:hover, 
+.btn-lead.disabled:focus, 
+.btn-lead[disabled]:focus, 
+fieldset[disabled] .btn-lead:focus, 
+.btn-lead.disabled:active, 
+.btn-lead[disabled]:active, 
+fieldset[disabled] .btn-lead:active, 
+.btn-lead.disabled.active, 
+.btn-lead[disabled].active, 
+fieldset[disabled] .btn-lead.active { 
+    background-color: @bring; 
+    border-color: @bring;
+} 
+ 
+.btn-lead .badge { 
+    color: @bring; 
+    background-color: @white; 
+}
+.btn-link:hover {
+    color: @btn-prm !important;
+}

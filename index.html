@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Ultimate Flat - Bootstrap One Page Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+        <link rel="stylesheet" href="inc/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="inc/css/red.css">
+        <link href="inc/flexslider/flexslider.css" rel="stylesheet" />
+        <link rel="stylesheet" href="inc/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="inc/owl-carousel/owl.theme.css">
+        <link rel="stylesheet" href="inc/magnific-popup/magnific-popup.css">
+        <script src="inc/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body ng-app="wioflixApp">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+<a id="menu-toggle" href="#menu" class="btn btn-links btn-lg toggle">
+    <div style="padding-right: 5px;" class="fb-like" data-href="http://www.whatisonnetflix.com/"
+         data-layout="box_count"
+         data-action="like" data-show-faces="true" data-share="true"></div>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ltalhouarne&type=follow&count=true&size=small"
+                                                                             frameborder="0" scrolling="0" width="200" height="30px"></iframe></a>
+
+<section id="header" class="container-fluid text-white">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-6 column">
+
+          <h1 class="main_title">
+              <img src="images/wio.png" style="padding-bottom:10px; height:150px;" alt=“” >
+               What is on Netflix?</h1>
+          <p class="text-left lead" style="padding-bottom: 50px;">
+              Find the best ranked movies on Metacritic, IMDB and Rotten Tomatoes streamable on
+              Netflix.
+              Updated every week.
+          </p>
+            <br>
+            <br>
+            <br>
+          <a href="#feature" class="btn btn-info" style="margin-left: auto; margin-right: auto; padding:10px 16px;font-size:20px;line-height:1.3333333;border-radius:12px"><i class="fa fa-search" aria-hidden="true"></i>
+
+              &nbsp;&nbsp;Start searching</a>
+        </div>
+        <div class="col-md-6 column hidden-xs">
+          <div id="main-slider" class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img class="img-responsive" style="width: 75%;" src="images/mockup-ipad-air.png" alt="Slide Three">
+                </li>
+              <li>
+                <img class="img-responsive" style="width: 75%;" src="images/mockup-iphone6.png" alt="Slide One">
+              </li>
+              <li>
+                <img class="img-responsive" style="width: 75%;" src="images/mockup-iphone6_2.png" alt="Slide Two">
+              </li>
+            </ul>
+              <div style="margin-left: 75px;">
+                  <a href="https://play.google.com/store/apps/details?id=com.wionflix.Wioflix" target="_blank">
+                      <img alt="Get it on Google Play"
+                           src="images/google-play-badge.png" width="130" height="40"/>
+                  </a>
+                  <a href="https://itunes.apple.com/us/app/wioflix/id957204575?mt=8&ign-mpt=uo%3D4" target="_blank">
+                      <img class="right" src="images/appStore.svg" width="140" height="70" alt="">
+                  </a>
+              </div>
+          </div>
+
+
+            </div>
+        </div>
+      </div>
+
+    </div><!-- /container  -->
+</section>
+
+<section id="feature" class="text-blue" ng-controller="MainController">
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-12 column p_title">
+        <h2 class="text-center">Where do you want to search from?</h2>
+          <br>
+        <p class="text-center lead"><a class="btn btn-lg btn-warning" ng-click="imdbClicked = true" href="#feature">Imdb</a>&nbsp;&nbsp;<a class="btn btn-lg btn-lead">Rotten tomatoes</a>&nbsp;&nbsp;<a class="btn btn-lg btn-success">Metacritic</a>&nbsp;&nbsp;<a class="btn btn-lg btn-default">New Releases</a>&nbsp;&nbsp;<a class="btn btn-lg btn-primary">Surprise me</a></p>
+      </div>
+      <div class="col-md-12 column">
+        <div class="row clearfix">
+            <div ng-if="imdbClicked" ng-controller="ImdbController">
+                <div class="navbar-outer"
+                     style="max-width:700px; text-align: center; float:none; margin-left: auto; margin-right: auto">
+
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                        aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control smallW" ng-model="query"
+                                               placeholder="Search title or year...">
+                                    </div>
+
+                                </form>
+                                <form class="navbar-form navbar-right" role="search">
+                                    <div class="form-group">
+                                        <button type="radio" class="btn btn-default" ng-click="type=true">Movies</button>
+                                        <button type="radio" class="btn btn-default" ng-click="type=false">Shows</button>
+                                    </div>
+
+                                </form>
+                                <ul class="nav navbar-nav navbar-right">
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="list-group">
+                    <div ng-if="type">
+                        <h5>Genre: {{categoryMovies}} <a href="" style="text-decoration: none"
+                                                         ng-click="categoryMovies='Any'"><span
+                                style="margin-bottom: -5px;" class="glyphicon glyphicon-remove-circle"
+                                aria-hidden="true"></span></a></h5>
+                        <br>
+
+                        <div ng-repeat="post in genresMovies" style="display: inline-block;">
+                            <button style="margin-bottom: 5px;" type="radio" class="btn btn-default"
+                                    ng-click="$parent.categoryMovies=post.Genre">{{post.Genre}}
+                            </button>
+                            &nbsp;
+                        </div>
+                        <br>
+                        <br>
+
+                        <div ng-repeat="post in filteredPostsMovies = (movies | filter:search | filter:customFilterMovies)"
+                             class="aligned height repeated-item">
+                    <span ng-switch="" on="$index % 3">
+                                <div class="row" ng-switch-when="0">
+                                    <div class="col-sm-4"
+                                         ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url">
+                                        <a ng-mouseover="showButtons = true" ng-init="showButtons==false" target="_blank"
+                                           ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].title}}
+                                        </h5>
+                                        <span ng-if="showButtons">test</span>
+                                        <h4 style="font-weight: 200">
+                                            {{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].rating}}
+                                        </h4>
+
+                                        <p ><a target="_blank"
+                                                                                                href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post))].urlN}}"
+                                                                                                class="btn btn-danger"
+                                                                                                role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Play</a></p>
+                                    </div>
+                                    <div class="col-sm-4"
+                                         ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url">
+                                        <a target="_blank"
+                                           ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsMovies[(filteredPostsMovies.indexOf(post)
+                                            +
+                                            1)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">
+                                            {{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsMovies[(filteredPostsMovies.indexOf(post)
+                                            + 1)].rating}}
+                                        </h4>
+
+                                        <p><a target="_blank"
+                                              href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].url}}"
+                                              class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                                                href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 1)].urlN}}"
+                                                                                                class="btn btn-danger"
+                                                                                                role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4"
+                                         ng-if="filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].url">
+                                        <a target="_blank"
+                                           ng-href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2) ].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsMovies[(filteredPostsMovies.indexOf(post)
+                                            +
+                                            2)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">
+                                            {{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>
+                                            {{filteredPostsMovies[(filteredPostsMovies.indexOf(post)
+                                            + 2)].rating}}
+                                        </h4>
+
+                                        <p><a target="_blank"
+                                              href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].url}}"
+                                              class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                                                href="{{filteredPostsMovies[(filteredPostsMovies.indexOf(post) + 2)].urlN}}"
+                                                                                                class="btn btn-danger"
+                                                                                                role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                </div>
+                        </span>
+                        </div>
+                    </div>
+                    <div ng-if="!type">
+
+                        <h5>Genre: {{categoryShows}} <a href="" style="text-decoration: none"
+                                                        ng-click="categoryShows='Any'"><span style="margin-bottom: -5px;"
+                                                                                             class="glyphicon glyphicon-remove-circle"
+                                                                                             aria-hidden="true"></span></a>
+                        </h5>
+                        <br>
+
+                        <div ng-repeat="post in genresTv" style="display: inline-block;">
+                            <button style="margin-bottom: 5px;" type="radio" class="btn btn-default"
+                                    ng-click="$parent.categoryShows=post.Genre">{{post.Genre}}
+                            </button>
+                            &nbsp;
+                        </div>
+                        <br>
+                        <br>
+
+                        <div ng-repeat="post in filteredPostsTvShows = (shows | filter:search | filter:customFilterShows)"
+                             class="aligned height repeated-item">
+                    <span ng-switch="" on="$index % 3">
+                                <div class="row" ng-switch-when="0">
+                                    <div class="col-sm-4"
+                                         ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url">
+                                        <a target="_blank"
+                                           ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 1}}. </b>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">
+                                            {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].rating}}
+                                        </h4>
+
+                                        <p><a target="_blank"
+                                              href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].url}}"
+                                              class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                                                href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post))].urlN}}"
+                                                                                                class="btn btn-danger"
+                                                                                                role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4"
+                                         ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url">
+                                        <a target="_blank"
+                                           ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 2}}. </b>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post)
+                                            +
+                                            1)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">
+                                            {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post)
+                                            + 1)].rating}}
+                                        </h4>
+
+                                        <p><a target="_blank"
+                                              href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].url}}"
+                                              class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                                                href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 1)].urlN}}"
+                                                                                                class="btn btn-danger"
+                                                                                                role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                    <div class="col-sm-4"
+                                         ng-if="filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].url">
+                                        <a target="_blank"
+                                           ng-href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2) ].url}}"
+                                           class="thumbnail"><img onerror="this.style.display='none';"
+                                                                  ng-src="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].imgN}}"
+                                                                  alt=""></a>
+                                        <h5 style="font-weight: 400"><b>{{$index + 3}}. </b>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post)
+                                            +
+                                            2)].title}}
+                                        </h5>
+                                        <h4 style="font-weight: 200">
+                                            {{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].year}} - <i
+                                                class="fa fa-star-o" style="color: orange"></i>{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post)
+                                            + 2)].rating}}
+                                        </h4>
+
+                                        <p><a target="_blank"
+                                              href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].url}}"
+                                              class="btn btn-primary" role="button">Info</a> <a target="_blank"
+                                                                                                href="{{filteredPostsTvShows[(filteredPostsTvShows.indexOf(post) + 2)].urlN}}"
+                                                                                                class="btn btn-danger"
+                                                                                                role="button"><span
+                                                class="glyphicon glyphicon-facetime-video"
+                                                aria-hidden="true"></span> Watch it!</a></p>
+                                    </div>
+                                </div>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- /container -->
+</section>
+
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="inc/js/jquery-1.11.0.min.js"><\/script>')</script>
+
+        <script src="inc/js/bootstrap.min.js"></script>
+
+        <script src="inc/js/main.js"></script>
+
+        <!-- FLEXSLIDER -->
+        <script src="inc/flexslider/jquery.flexslider-min.js"></script>
+
+        <!-- Include js plugin -->
+        <script src="inc/owl-carousel/owl.carousel.js"></script>
+
+        <!-- Magnific Popup core JS file -->
+        <script src="inc/magnific-popup/jquery.magnific-popup.js"></script>
+
+        <!-- Isotope JS file -->
+        <script src="inc/isotope/jquery.isotope.min.js"></script>
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>
