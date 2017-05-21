@@ -11,10 +11,10 @@
    ========================================================================== */
 
 /* Font Awesome */
-@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
 /* Google Fonts */
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700,900);
 
 body {
     padding:0 !important;
