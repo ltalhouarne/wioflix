@@ -1,4 +1,4 @@
-# [Whatisonnetflix.com](http://whatisonnetflix.com/#/)
+# [wioflix.com](http://wioflix.com/#/)
 
 Find the best streamable movies from Imdb, Rotten tomatoes and Metacritic.
 
